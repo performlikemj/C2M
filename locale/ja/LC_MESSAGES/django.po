@@ -1,0 +1,1375 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-30 06:30+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: c2m_gym/settings.py:175
+msgid "English"
+msgstr "英語"
+
+#: c2m_gym/settings.py:176
+msgid "Japanese"
+msgstr "日本語"
+
+#: class_schedule/models.py:24
+msgid "Is this session recurring weekly?"
+msgstr "このセッションは毎週繰り返されますか？"
+
+#: class_schedule/models.py:25
+msgid "Recur until this date, weekly."
+msgstr "この日付まで毎週繰り返します。"
+
+#: class_schedule/models.py:32 gymApp/models.py:262
+msgid "Session time must be between 10 am and 10 pm."
+msgstr "セッション時間は午前10時から午後10時の間でなければなりません。"
+
+#: class_schedule/models.py:41
+msgid "Trainer is already booked for another session during this time."
+msgstr "この時間帯にトレーナーは他のセッションで予約されています。"
+
+#: class_schedule/templates/class_schedule/add_class.html:6
+msgid "Add a New Class"
+msgstr "新しいクラスを追加"
+
+#: class_schedule/templates/class_schedule/add_class.html:10
+msgid "Add Class"
+msgstr "クラスを追加"
+
+#: class_schedule/templates/class_schedule/add_class.html:12
+msgid "Back to Classes"
+msgstr "クラスに戻る"
+
+#: class_schedule/templates/class_schedule/add_session.html:6
+#, python-format
+msgid "Add New Session for %(class_title)s"
+msgstr "%(class_title)sの新しいセッションを追加"
+
+#: class_schedule/templates/class_schedule/add_session.html:10
+msgid "Add Session"
+msgstr "セッションを追加"
+
+#: class_schedule/templates/class_schedule/add_session.html:12
+msgid "Back to Class Details"
+msgstr "クラスの詳細に戻る"
+
+#: class_schedule/templates/class_schedule/class_detail.html:14
+msgid "Add New Session"
+msgstr "新しいセッションを追加"
+
+#: class_schedule/templates/class_schedule/class_detail.html:20
+msgid "Upcoming Sessions"
+msgstr "今後のセッション"
+
+#: class_schedule/templates/class_schedule/class_detail.html:31
+msgid "Book Class"
+msgstr "クラスを予約"
+
+#: class_schedule/templates/class_schedule/class_detail.html:35
+#: class_schedule/templates/class_schedule/private_class_requests.html:11
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:11
+#: class_schedule/templates/class_schedule/session_detail.html:27
+msgid "Trainer"
+msgstr "トレーナー"
+
+#: class_schedule/templates/class_schedule/class_detail.html:39
+msgid "TBA"
+msgstr "未定"
+
+#: class_schedule/templates/class_schedule/class_detail.html:46
+msgid "No upcoming sessions."
+msgstr "今後のセッションはありません。"
+
+#: class_schedule/templates/class_schedule/class_detail.html:51
+msgid "Past Sessions"
+msgstr "過去のセッション"
+
+#: class_schedule/templates/class_schedule/class_detail.html:57
+msgid "Session has ended."
+msgstr "セッションは終了しました。"
+
+#: class_schedule/templates/class_schedule/class_detail.html:62
+msgid "No past sessions."
+msgstr "過去のセッションはありません。"
+
+#: class_schedule/templates/class_schedule/class_list.html:7
+msgid "Class Schedule"
+msgstr "クラススケジュール"
+
+#: class_schedule/templates/class_schedule/class_list.html:13
+msgid "Add New Class"
+msgstr "新しいクラスを追加"
+
+#: class_schedule/templates/class_schedule/class_list.html:18
+msgid "Week navigation"
+msgstr "週のナビゲーション"
+
+#: class_schedule/templates/class_schedule/class_list.html:19
+msgid "Previous Week"
+msgstr "前の週"
+
+#: class_schedule/templates/class_schedule/class_list.html:20
+msgid "Current Week"
+msgstr "今週"
+
+#: class_schedule/templates/class_schedule/class_list.html:21
+msgid "Next Week"
+msgstr "次の週"
+
+#: class_schedule/templates/class_schedule/class_list.html:40
+msgid "No sessions"
+msgstr "セッションがありません"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:10
+#: templates/base.html:59
+msgid "QR Code"
+msgstr "QRコード"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:17
+msgid "Large QR Code"
+msgstr "大きなQRコード"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:24
+msgid "My Scheduled Classes"
+msgstr "私の予定されたクラス"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:34
+msgid "Ends at"
+msgstr "終了時刻"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:39
+#: class_schedule/templates/class_schedule/session_detail.html:36
+msgid "Cancel Booking"
+msgstr "予約をキャンセル"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:42
+msgid "Cancellation not allowed"
+msgstr "キャンセルは許可されていません"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:43
+msgid "Cancellation not allowed within 24 hours of the session start time."
+msgstr "セッション開始の24時間以内のキャンセルは許可されていません。"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:48
+msgid "You have no upcoming booked classes."
+msgstr "今後の予約されたクラスはありません。"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:6
+msgid "My Private Class Requests"
+msgstr "私のプライベートクラスのリクエスト"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:10
+#: class_schedule/templates/class_schedule/session_detail.html:21
+msgid "Date"
+msgstr "日付"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:12
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:14
+#: documentation/templates/documentation/document_status.html:9
+#: gymApp/templates/gymApp/view_user_documents.html:13
+msgid "Status"
+msgstr "ステータス"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:13
+msgid "Notes"
+msgstr "ノート"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:24
+msgid "Any"
+msgstr "任意"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:32
+msgid "No private class requests found."
+msgstr "プライベートクラスのリクエストは見つかりませんでした。"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:6
+#: templates/base.html:72
+msgid "Private Class Requests"
+msgstr "プライベートクラスのリクエスト"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:10
+msgid "User"
+msgstr "ユーザー"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:12
+msgid "Requested Date"
+msgstr "リクエスト日"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:13
+msgid "Message"
+msgstr "メッセージ"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:15
+#: gymApp/templates/gymApp/list_users.html:13
+#: gymApp/templates/gymApp/manage_memberships.html:15
+#: gymApp/templates/gymApp/view_user_documents.html:14
+msgid "Actions"
+msgstr "アクション"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:26
+msgid "Not Assigned"
+msgstr "未割り当て"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:35
+msgid "Approve"
+msgstr "承認"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:36
+msgid "Deny"
+msgstr "拒否"
+
+#: class_schedule/templates/class_schedule/request_private_class.html:6
+msgid "Request a Private Class"
+msgstr "プライベートクラスをリクエスト"
+
+#: class_schedule/templates/class_schedule/request_private_class.html:24
+msgid "Submit Request"
+msgstr "リクエストを提出"
+
+#: class_schedule/templates/class_schedule/session_detail.html:10
+msgid "Session Details"
+msgstr "セッションの詳細"
+
+#: class_schedule/templates/class_schedule/session_detail.html:24
+msgid "Time"
+msgstr "時間"
+
+#: class_schedule/templates/class_schedule/session_detail.html:41
+msgid "Book Session"
+msgstr "セッションを予約"
+
+#: class_schedule/templates/class_schedule/session_detail.html:47
+msgid "Please"
+msgstr "どうぞ"
+
+#: class_schedule/templates/class_schedule/session_detail.html:47
+msgid "log in"
+msgstr "ログイン"
+
+#: class_schedule/templates/class_schedule/session_detail.html:47
+msgid "to book the session."
+msgstr "セッションを予約するには。"
+
+#: class_schedule/templates/class_schedule/session_detail.html:54
+msgid "Remove This Session"
+msgstr "このセッションを削除"
+
+#: class_schedule/templates/class_schedule/session_detail.html:58
+msgid "Remove All Recurring Sessions"
+msgstr "すべての繰り返しセッションを削除"
+
+#: class_schedule/templates/class_schedule/session_detail.html:68
+msgid "Manage Members"
+msgstr "メンバーを管理"
+
+#: class_schedule/templates/class_schedule/session_detail.html:71
+msgid "Current Members"
+msgstr "現在のメンバー"
+
+#: class_schedule/templates/class_schedule/session_detail.html:78
+#: products/templates/products/cart.html:26
+msgid "Remove"
+msgstr "削除"
+
+#: class_schedule/templates/class_schedule/session_detail.html:84
+msgid "Add Member to Session"
+msgstr "セッションにメンバーを追加"
+
+#: class_schedule/templates/class_schedule/session_detail.html:88
+msgid "Select Member"
+msgstr "メンバーを選択"
+
+#: class_schedule/templates/class_schedule/session_detail.html:95
+msgid "Add Member"
+msgstr "メンバーを追加"
+
+#: class_schedule/views.py:40
+msgid "Invalid week parameter"
+msgstr "無効な週のパラメータ"
+
+#: class_schedule/views.py:109
+msgid "You have already booked this class."
+msgstr "このクラスはすでに予約済みです。"
+
+#: class_schedule/views.py:112
+msgid "Class booked successfully."
+msgstr "クラスが正常に予約されました。"
+
+#: class_schedule/views.py:119
+msgid "You cannot cancel bookings for past sessions."
+msgstr "過去のセッションの予約をキャンセルすることはできません。"
+
+#: class_schedule/views.py:121
+msgid "Bookings can only be canceled more than 24 hours in advance."
+msgstr "予約は24時間前以上にのみキャンセルできます。"
+
+#: class_schedule/views.py:124
+msgid "Your booking has been successfully canceled."
+msgstr "予約は正常にキャンセルされました。"
+
+#: class_schedule/views.py:136
+msgid "Membership is not active."
+msgstr "会員資格が有効ではありません。"
+
+#: class_schedule/views.py:171
+msgid "New class added successfully."
+msgstr "新しいクラスが正常に追加されました。"
+
+#: class_schedule/views.py:181
+msgid "Class removed successfully."
+msgstr "クラスが正常に削除されました。"
+
+#: class_schedule/views.py:206
+msgid "New session added successfully."
+msgstr "新しいセッションが正常に追加されました。"
+
+#: class_schedule/views.py:217 class_schedule/views.py:237
+msgid "Session removed successfully."
+msgstr "セッションが正常に削除されました。"
+
+#: class_schedule/views.py:251
+#, python-format
+msgid "%s added to session."
+msgstr "%s がセッションに追加されました。"
+
+#: class_schedule/views.py:253
+#, python-format
+msgid "%s is already in the session."
+msgstr "%s はすでにセッションに参加しています。"
+
+#: class_schedule/views.py:263
+msgid "Member removed from session successfully."
+msgstr "メンバーがセッションから正常に削除されました。"
+
+#: class_schedule/views.py:274
+msgid "You must be a member to request a private class."
+msgstr "プライベートクラスをリクエストするには会員である必要があります。"
+
+#: class_schedule/views.py:277
+msgid "Your private class request has been submitted successfully."
+msgstr "プライベートクラスのリクエストが正常に提出されました。"
+
+#: class_schedule/views.py:280
+msgid ""
+"There was an error with your submission. Please correct the errors below."
+msgstr "提出にエラーがありました。以下のエラーを修正してください。"
+
+#: class_schedule/views.py:311
+#, python-format
+msgid "Private class request from %s approved."
+msgstr "%s からのプライベートクラスのリクエストが承認されました。"
+
+#: class_schedule/views.py:314
+#, python-format
+msgid "Private class request from %s denied."
+msgstr "%s からのプライベートクラスのリクエストが拒否されました。"
+
+#: documentation/templates/documentation/document_status.html:6
+#: documentation/templates/documentation/list_documents.html:27
+msgid "Your Submissions"
+msgstr "あなたの提出物"
+
+#: documentation/templates/documentation/document_status.html:9
+#: documentation/templates/documentation/list_documents.html:32
+msgid "Submitted on"
+msgstr "提出日"
+
+#: documentation/templates/documentation/list_documents.html:7
+msgid "Documents Center"
+msgstr "ドキュメントセンター"
+
+#: documentation/templates/documentation/list_documents.html:10
+msgid "Available Documents"
+msgstr "利用可能なドキュメント"
+
+#: documentation/templates/documentation/list_documents.html:16
+#: gymApp/templates/gymApp/view_user_documents.html:30
+msgid "Download"
+msgstr "ダウンロード"
+
+#: documentation/templates/documentation/list_documents.html:17
+msgid "Submit"
+msgstr "提出"
+
+#: documentation/templates/documentation/list_documents.html:32
+#: gymApp/templates/gymApp/view_user_documents.html:26
+msgid "Verified"
+msgstr "確認済み"
+
+#: documentation/templates/documentation/list_documents.html:35
+msgid "No submissions yet."
+msgstr "まだ提出物はありません。"
+
+#: documentation/templates/documentation/submit_document.html:7
+msgid "Submit Document"
+msgstr "ドキュメントを提出"
+
+#: documentation/templates/documentation/submit_document.html:12
+msgid "Upload"
+msgstr "アップロード"
+
+#: gymApp/forms.py:36
+msgid "Pending verification"
+msgstr "確認待ち"
+
+#: gymApp/forms.py:41 gymApp/forms.py:99
+msgid "A user with this email already exists."
+msgstr "このメールアドレスのユーザーはすでに存在します。"
+
+#: gymApp/forms.py:52
+msgid "You must provide your old password to set a new password."
+msgstr ""
+"新しいパスワードを設定するには、古いパスワードを提供する必要があります。"
+
+#: gymApp/forms.py:54
+msgid "The two password fields didn't match."
+msgstr "2つのパスワードが一致しませんでした。"
+
+#: gymApp/forms.py:78 gymApp/templates/gymApp/list_users.html:12
+msgid "Email"
+msgstr "メールアドレス"
+
+#: gymApp/forms.py:81 gymApp/forms.py:124
+msgid "Gender"
+msgstr "性別"
+
+#: gymApp/forms.py:93
+msgid "A user with this username already exists."
+msgstr "このユーザー名のユーザーはすでに存在します。"
+
+#: gymApp/forms.py:119
+msgid "Select your membership type"
+msgstr "会員タイプを選択"
+
+#: gymApp/forms.py:140
+msgid ""
+"Trial - 4000.00¥, Try out our gym and classes. Become a member and have the "
+"trial fee deducted from your first month's membership!"
+msgstr ""
+"トライアル - 4000.00¥、C2Mのジムとクラスをお試しください。会員になれば、トラ"
+"イアル料金は最初の月の会員費から差し引かれます！"
+
+#: gymApp/models.py:31
+msgid "Male"
+msgstr "男性"
+
+#: gymApp/models.py:32
+msgid "Female"
+msgstr "女性"
+
+#: gymApp/models.py:240
+msgid "A trainer must be assigned for personal training sessions."
+msgstr ""
+"パーソナルトレーニングセッションにはトレーナーが割り当てられている必要があり"
+"ます。"
+
+#: gymApp/models.py:255
+msgid "Trainer is already booked for a private session during this time."
+msgstr "この時間帯にトレーナーはプライベートセッションで予約されています。"
+
+#: gymApp/templates/gymApp/add_membership.html:7
+msgid "Add New Membership Type"
+msgstr "新しい会員タイプを追加"
+
+#: gymApp/templates/gymApp/add_membership.html:11
+msgid "Add Membership Type"
+msgstr "会員タイプを追加"
+
+#: gymApp/templates/gymApp/add_payment_method.html:11
+msgid "Add Payment Method"
+msgstr "支払い方法を追加"
+
+#: gymApp/templates/gymApp/add_payment_method.html:21
+msgid "Add Payment Method For Monthly Membership"
+msgstr "月会費の支払い方法を追加"
+
+#: gymApp/templates/gymApp/add_user.html:7
+msgid "Add New User"
+msgstr "新しいユーザーを追加"
+
+#: gymApp/templates/gymApp/add_user.html:11
+msgid "Add User"
+msgstr "ユーザーを追加"
+
+#: gymApp/templates/gymApp/check_in.html:6
+#: gymApp/templates/gymApp/check_process.html:19
+msgid "Check In"
+msgstr "チェックイン"
+
+#: gymApp/templates/gymApp/check_in.html:9
+msgid "Scan QR Code to Check In"
+msgstr "チェックインするにはQRコードをスキャン"
+
+#: gymApp/templates/gymApp/check_out.html:6
+#: gymApp/templates/gymApp/check_process.html:20
+msgid "Check Out"
+msgstr "チェックアウト"
+
+#: gymApp/templates/gymApp/check_out.html:9
+msgid "Scan QR Code to Check Out"
+msgstr "チェックアウトするにはQRコードをスキャン"
+
+#: gymApp/templates/gymApp/check_process.html:17
+msgid "Scan QR Code"
+msgstr "QRコードをスキャン"
+
+#: gymApp/templates/gymApp/check_process.html:32
+#: gymApp/templates/gymApp/select_session_type.html:6
+msgid "Select Session Type"
+msgstr "セッションタイプを選択"
+
+#: gymApp/templates/gymApp/check_process.html:33
+msgid "Remaining Regular Sessions:"
+msgstr "残りの通常セッション："
+
+#: gymApp/templates/gymApp/check_process.html:34
+msgid "Remaining Personal Training Sessions:"
+msgstr "残りのパーソナルトレーニングセッション："
+
+#: gymApp/templates/gymApp/check_process.html:38
+#: gymApp/templates/gymApp/select_session_type.html:14
+msgid "Use Regular Session"
+msgstr "通常セッションを使用"
+
+#: gymApp/templates/gymApp/check_process.html:42
+#: gymApp/templates/gymApp/select_session_type.html:18
+msgid "Use Personal Training Session"
+msgstr "パーソナルトレーニングセッションを使用"
+
+#: gymApp/templates/gymApp/check_process.html:45
+msgid "Select Session:"
+msgstr "セッションを選択："
+
+#: gymApp/templates/gymApp/check_process.html:48
+msgid "Select Trainer:"
+msgstr "トレーナーを選択："
+
+#: gymApp/templates/gymApp/check_process.html:51
+#: gymApp/templates/gymApp/select_session_type.html:39
+msgid "Select"
+msgstr "選択"
+
+#: gymApp/templates/gymApp/collect_payment.html:6
+msgid "Collect Payment"
+msgstr "支払いを集める"
+
+#: gymApp/templates/gymApp/collect_payment.html:11
+msgid "Payment Information"
+msgstr "支払い情報"
+
+#: gymApp/templates/gymApp/collect_payment.html:14
+msgid "Submit Payment"
+msgstr "支払いを提出"
+
+#: gymApp/templates/gymApp/delete_membership.html:6
+msgid "Delete Membership"
+msgstr "会員資格を削除"
+
+#: gymApp/templates/gymApp/delete_membership.html:7
+#, python-format
+msgid "Are you sure you want to delete the membership of %(username)s?"
+msgstr "%(username)s の会員資格を削除してもよろしいですか？"
+
+#: gymApp/templates/gymApp/delete_membership.html:10
+msgid "Yes, delete"
+msgstr "はい、削除"
+
+#: gymApp/templates/gymApp/delete_membership.html:12
+msgid "No, go back"
+msgstr "いいえ、戻る"
+
+#: gymApp/templates/gymApp/delete_user.html:7
+msgid "Delete User"
+msgstr "ユーザーを削除"
+
+#: gymApp/templates/gymApp/delete_user.html:8
+#, python-format
+msgid "Are you sure you want to delete %(username)s?"
+msgstr "%(username)s を削除してもよろしいですか？"
+
+#: gymApp/templates/gymApp/delete_user.html:11
+#: gymApp/templates/gymApp/list_users.html:23
+#: gymApp/templates/gymApp/manage_memberships.html:27
+#: gym_info/templates/gym_info/trainer_detail.html:14
+msgid "Delete"
+msgstr "削除"
+
+#: gymApp/templates/gymApp/delete_user.html:12
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:7 templates/base.html:58
+msgid "Edit Profile"
+msgstr "プロフィールを編集"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:25
+#: gymApp/templates/gymApp/list_users.html:11
+#: gymApp/templates/gymApp/login.html:22
+#: gymApp/templates/gymApp/manage_memberships.html:11
+msgid "Username"
+msgstr "ユーザー名"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:29
+msgid "First Name"
+msgstr "名"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:33
+msgid "Last Name"
+msgstr "姓"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:37
+msgid "Current Email Address"
+msgstr "現在のメールアドレス"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:41
+msgid "New Email Address"
+msgstr "新しいメールアドレス"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:43
+#: gymApp/templates/gymApp/edit_own_profile.html:53
+#: gymApp/templates/gymApp/edit_own_profile.html:58
+msgid "Leave blank if not changing"
+msgstr "変更しない場合は空白のままにしてください"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:46
+msgid "Old Password"
+msgstr "旧パスワード"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:48
+msgid "Required to set a new password"
+msgstr "新しいパスワードを設定するには必要です"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:51
+msgid "New Password"
+msgstr "新しいパスワード"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:56
+msgid "Confirm New Password"
+msgstr "新しいパスワードを確認"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:60
+#: gym_info/templates/gym_info/manage_contact_info.html:12
+msgid "Save Changes"
+msgstr "変更を保存"
+
+#: gymApp/templates/gymApp/edit_user.html:7
+msgid "Edit User"
+msgstr "ユーザーを編集"
+
+#: gymApp/templates/gymApp/edit_user.html:11
+msgid "Update User"
+msgstr "ユーザーを更新"
+
+#: gymApp/templates/gymApp/list_users.html:7 templates/base.html:95
+msgid "Manage Users"
+msgstr "ユーザーを管理"
+
+#: gymApp/templates/gymApp/list_users.html:22
+#: gymApp/templates/gymApp/manage_memberships.html:26
+#: gym_info/templates/gym_info/trainer_detail.html:13
+msgid "Edit"
+msgstr "編集"
+
+#: gymApp/templates/gymApp/list_users.html:24 templates/base.html:104
+#: templates/base.html:120
+msgid "View Documents"
+msgstr "ドキュメントを見る"
+
+#: gymApp/templates/gymApp/login.html:8 gymApp/templates/gymApp/login.html:29
+#: templates/base.html:152
+msgid "Login"
+msgstr "ログイン"
+
+#: gymApp/templates/gymApp/login.html:26
+msgid "Password"
+msgstr "パスワード"
+
+#: gymApp/templates/gymApp/login.html:32
+msgid "Don't have an account?"
+msgstr "アカウントをお持ちではありませんか？"
+
+#: gymApp/templates/gymApp/login.html:32
+msgid "Register here"
+msgstr "こちらで登録"
+
+#: gymApp/templates/gymApp/login.html:35
+msgid "Didn't receive a verification email?"
+msgstr "確認メールを受け取っていませんか？"
+
+#: gymApp/templates/gymApp/login.html:35
+msgid "Resend it here"
+msgstr "ここで再送"
+
+#: gymApp/templates/gymApp/manage_memberships.html:7 templates/base.html:96
+msgid "Manage Memberships"
+msgstr "会員資格を管理"
+
+#: gymApp/templates/gymApp/manage_memberships.html:12
+msgid "Membership Type"
+msgstr "会員タイプ"
+
+#: gymApp/templates/gymApp/manage_memberships.html:13
+#: gymApp/templates/gymApp/select_membership.html:23
+msgid "Start Date"
+msgstr "開始日"
+
+#: gymApp/templates/gymApp/manage_memberships.html:14
+#: gymApp/templates/gymApp/select_membership.html:24
+msgid "End Date"
+msgstr "終了日"
+
+#: gymApp/templates/gymApp/payment_cancel.html:6
+#: gymApp/templates/gymApp/payment_cancel.html:10
+msgid "Payment Cancelled"
+msgstr "支払いがキャンセルされました"
+
+#: gymApp/templates/gymApp/payment_cancel.html:11
+msgid ""
+"Your payment was cancelled. Please try again or contact support for "
+"assistance."
+msgstr ""
+"支払いがキャンセルされました。再試行するか、サポートに連絡してください。"
+
+#: gymApp/templates/gymApp/payment_success.html:6
+#: gymApp/templates/gymApp/payment_success.html:10
+msgid "Payment Successful"
+msgstr "支払い成功"
+
+#: gymApp/templates/gymApp/payment_success.html:11
+msgid "Your payment was successful. Welcome to C2M Muay Thai."
+msgstr "支払いが成功しました。C2Mムエタイへようこそ。"
+
+#: gymApp/templates/gymApp/register.html:5
+#: gymApp/templates/gymApp/register.html:9
+#: gymApp/templates/gymApp/register.html:40 templates/base.html:155
+msgid "Register"
+msgstr "登録"
+
+#: gymApp/templates/gymApp/registration/account_lockout.html:11
+msgid "Account Locked"
+msgstr "アカウントがロックされました"
+
+#: gymApp/templates/gymApp/registration/account_lockout.html:12
+msgid ""
+"Your account has been locked due to multiple failed login attempts. Please "
+"try again later or contact support for assistance."
+msgstr ""
+"複数のログイン失敗によりアカウントがロックされました。後でもう一度お試しください。またはサポートに連絡して助けを求めてください。"
+
+
+#: gymApp/templates/gymApp/resend_verification_email.html:7
+msgid "Resend Verification Email"
+msgstr "確認メールを再送"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:11
+msgid "Enter your email address"
+msgstr "メールアドレスを入力"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:15
+msgid "Enter your username"
+msgstr "ユーザー名を入力"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:18
+msgid "Resend Email"
+msgstr "メールを再送"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:21
+#: gymApp/views.py:102 gymApp/views.py:106
+msgid ""
+"If your email address and username are correct, a verification email was "
+"sent."
+msgstr "メールアドレスとユーザー名が正しければ、確認メールが送信されました。"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:22
+msgid ""
+"Check your spam or junk folder if you don't receive the email within a few "
+"minutes."
+msgstr ""
+"数分以内にメールを受け取らない場合は、迷惑メールフォルダーを確認してくださ"
+"い。"
+
+#: gymApp/templates/gymApp/select_membership.html:6
+msgid "Select Membership"
+msgstr "会員資格を選択"
+
+#: gymApp/templates/gymApp/select_membership.html:11
+msgid "Select Your Membership"
+msgstr "会員資格を選択"
+
+#: gymApp/templates/gymApp/select_membership.html:19
+msgid "Your Current Membership"
+msgstr "現在の会員資格"
+
+#: gymApp/templates/gymApp/select_membership.html:20
+msgid "Type"
+msgstr "タイプ"
+
+#: gymApp/templates/gymApp/select_membership.html:21
+msgid "Sessions Remaining"
+msgstr "残りのセッション"
+
+#: gymApp/templates/gymApp/select_membership.html:22
+msgid "Personal Trainings Remaining"
+msgstr "残りのパーソナルトレーニング"
+
+#: gymApp/templates/gymApp/select_membership.html:27
+msgid "Cancel Membership"
+msgstr "会員資格をキャンセル"
+
+#: gymApp/templates/gymApp/select_membership.html:30
+msgid "View Invoices"
+msgstr "請求書を表示"
+
+#: gymApp/templates/gymApp/select_membership.html:36
+msgid "Submit Cancellation"
+msgstr "キャンセルを提出"
+
+#: gymApp/templates/gymApp/select_membership.html:41
+msgid "You do not have a current membership."
+msgstr "現在の会員資格がありません。"
+
+#: gymApp/templates/gymApp/select_membership.html:44
+msgid "Available Memberships"
+msgstr "利用可能な会員資格"
+
+#: gymApp/templates/gymApp/select_membership.html:49
+msgid "Membership Image"
+msgstr "会員資格の画像"
+
+#: gymApp/templates/gymApp/select_membership.html:53
+msgid "Price for Men"
+msgstr "男性の料金"
+
+#: gymApp/templates/gymApp/select_membership.html:54
+msgid "Price for Women"
+msgstr "女性の料金"
+
+#: gymApp/templates/gymApp/select_membership.html:55
+msgid "Purchase"
+msgstr "購入"
+
+#: gymApp/templates/gymApp/select_session_type.html:8
+msgid "Remaining Regular Sessions"
+msgstr "残りの通常セッション"
+
+#: gymApp/templates/gymApp/select_session_type.html:9
+msgid "Remaining Personal Training Sessions"
+msgstr "残りのパーソナルトレーニングセッション"
+
+#: gymApp/templates/gymApp/select_session_type.html:23
+msgid "Select Session"
+msgstr "セッションを選択"
+
+#: gymApp/templates/gymApp/select_session_type.html:30
+msgid "Select Trainer"
+msgstr "トレーナーを選択"
+
+#: gymApp/templates/gymApp/select_session_type.html:42
+msgid "No active membership found."
+msgstr "有効な会員資格が見つかりません。"
+
+#: gymApp/templates/gymApp/update_membership.html:6
+msgid "Update Membership"
+msgstr "会員資格を更新"
+
+#: gymApp/templates/gymApp/update_membership.html:10
+#: gym_info/templates/gym_info/edit_trainer.html:13
+msgid "Update"
+msgstr "更新"
+
+#: gymApp/templates/gymApp/view_user_documents.html:7
+#, python-format
+msgid "Documents Submitted by %(username)s"
+msgstr "%(username)s によって提出されたドキュメント"
+
+#: gymApp/templates/gymApp/view_user_documents.html:11
+msgid "Document"
+msgstr "ドキュメント"
+
+#: gymApp/templates/gymApp/view_user_documents.html:12
+msgid "Submission Date"
+msgstr "提出日"
+
+#: gymApp/templates/gymApp/view_user_documents.html:35
+msgid "No documents submitted yet."
+msgstr "まだ提出されたドキュメントはありません。"
+
+#: gymApp/views.py:74
+msgid ""
+"Registration successful. Please check your email to verify your account."
+msgstr ""
+"登録に成功しました。アカウントを確認するためにメールを確認してください。"
+
+#: gymApp/views.py:104
+msgid "Your account is already active. You can log in."
+msgstr "アカウントはすでに有効です。ログインできます。"
+
+#: gymApp/views.py:125
+msgid "Email verified successfully. You can now log in."
+msgstr "メールが正常に確認されました。今すぐログインできます。"
+
+#: gymApp/views.py:128
+msgid "Invalid verification link"
+msgstr "無効な確認リンク"
+
+#: gymApp/views.py:380
+msgid "Price ID is missing for the selected membership type."
+msgstr "選択した会員タイプの価格IDがありません。"
+
+#: gymApp/views.py:384
+msgid ""
+"You have already used your 'Trial' membership and cannot purchase another."
+msgstr ""
+"「トライアル」会員資格はすでに使用しており、別のものを購入することはできませ"
+"ん。"
+
+#: gymApp/views.py:389
+msgid ""
+"You already have an active subscription. Please wait until your current "
+"subscription ends before purchasing a new one."
+msgstr ""
+"すでに有効なサブスクリプションがあります。新しいものを購入する前に、現在のサ"
+"ブスクリプションが終了するまでお待ちください。"
+
+#: gymApp/views.py:441
+msgid "Invalid membership type."
+msgstr "無効な会員タイプ。"
+
+#: gymApp/views.py:494
+msgid "An unexpected error occurred."
+msgstr "予期しないエラーが発生しました。"
+
+#: gymApp/views.py:498
+msgid "Your payment was successful. Welcome to C2M Muay Thai!"
+msgstr "支払いが成功しました。C2Mムエタイへようこそ！"
+
+#: gymApp/views.py:551
+msgid "Payment was cancelled."
+msgstr "支払いがキャンセルされました。"
+
+#: gymApp/views.py:582
+#, python-brace-format
+msgid "Failed to cancel Stripe subscription: {error}"
+msgstr "Stripeサブスクリプションのキャンセルに失敗しました：{error}"
+
+#: gymApp/views.py:586
+msgid ""
+"Your membership has been cancelled successfully. You can use your remaining "
+"sessions until the end of the period."
+msgstr ""
+"会員資格は正常にキャンセルされました。期間終了まで残りのセッションを使用でき"
+"ます。"
+
+#: gymApp/views.py:588
+msgid "Your trial will only expire after you use it."
+msgstr "トライアルは使用後にのみ期限切れになります。"
+
+#: gymApp/views.py:591
+msgid "You do not have an active membership to cancel."
+msgstr "キャンセルする有効な会員資格がありません。"
+
+#: gymApp/views.py:594
+msgid "Please provide a reason for cancellation."
+msgstr "キャンセルの理由を提供してください。"
+
+#: gymApp/views.py:624
+msgid "Access is restricted to kiosk devices only."
+msgstr "アクセスはキオスクデバイスのみに制限されています。"
+
+#: gymApp/views.py:636
+msgid "Your email is not verified. Please check your inbox."
+msgstr "メールが確認されていません。受信箱を確認してください。"
+
+#: gymApp/views.py:642
+msgid "You have successfully logged out."
+msgstr "正常にログアウトしました。"
+
+#: gymApp/views.py:674
+#, python-brace-format
+msgid "Document '{document_name}' verification status updated."
+msgstr "ドキュメント「{document_name}」の確認ステータスが更新されました。"
+
+#: gymApp/views.py:689
+msgid ""
+"Your profile was updated successfully. Please check your new email to verify "
+"the change."
+msgstr ""
+"プロフィールが正常に更新されました。変更を確認するために新しいメールを確認し"
+"てください。"
+
+#: gymApp/views.py:691
+msgid "Your profile was updated successfully."
+msgstr "プロフィールが正常に更新されました。"
+
+#: gymApp/views.py:694
+msgid "Profile update failed. Please check the form for errors."
+msgstr "プロフィールの更新に失敗しました。フォームのエラーを確認してください。"
+
+#: gymApp/views.py:705
+msgid "User updated successfully."
+msgstr "ユーザーが正常に更新されました。"
+
+#: gymApp/views.py:705
+msgid "Failed to update user."
+msgstr "ユーザーの更新に失敗しました。"
+
+#: gymApp/views.py:709
+msgid "User added successfully."
+msgstr "ユーザーが正常に追加されました。"
+
+#: gymApp/views.py:709
+msgid "Failed to add user."
+msgstr "ユーザーの追加に失敗しました。"
+
+#: gymApp/views.py:711
+msgid "Operation successful"
+msgstr "操作が成功しました"
+
+#: gymApp/views.py:711
+msgid "Operation failed"
+msgstr "操作に失敗しました"
+
+#: gymApp/views.py:730
+msgid "User deleted successfully."
+msgstr "ユーザーが正常に削除されました。"
+
+#: gymApp/views.py:732
+#, python-brace-format
+msgid "Error deleting user: {error}"
+msgstr "ユーザーの削除エラー：{error}"
+
+#: gymApp/views.py:750
+msgid "Membership type added successfully."
+msgstr "会員タイプが正常に追加されました。"
+
+#: gymApp/views.py:753
+msgid "Failed to add membership type."
+msgstr "会員タイプの追加に失敗しました。"
+
+#: gymApp/views.py:768
+msgid "Membership updated successfully."
+msgstr "会員資格が正常に更新されました。"
+
+#: gymApp/views.py:771
+msgid "Failed to update membership."
+msgstr "会員資格の更新に失敗しました。"
+
+#: gymApp/views.py:781
+msgid "Membership deleted successfully."
+msgstr "会員資格が正常に削除されました。"
+
+#: gymApp/views.py:802 gymApp/views.py:803
+msgid "No active membership. Check-in not allowed."
+msgstr "有効な会員資格がありません。チェックインは許可されていません。"
+
+#: gymApp/views.py:811 gymApp/views.py:868
+msgid "Check-in successful."
+msgstr "チェックインが成功しました。"
+
+#: gymApp/views.py:827
+msgid "Profile not found"
+msgstr "プロフィールが見つかりません"
+
+#: gymApp/views.py:830 gymApp/views.py:886
+msgid "An unexpected error occurred"
+msgstr "予期しないエラーが発生しました"
+
+#: gymApp/views.py:837
+msgid "User not provided."
+msgstr "ユーザーが提供されていません。"
+
+#: gymApp/views.py:843 gymApp/views.py:882
+msgid "No active membership."
+msgstr "有効な会員資格がありません。"
+
+#: gymApp/views.py:864
+msgid "Invalid session type or insufficient sessions."
+msgstr "無効なセッションタイプまたはセッションが不足しています。"
+
+#: gymApp/views.py:877 gymApp/views.py:878
+msgid "Check-out successful."
+msgstr "チェックアウトが成功しました。"
+
+#: gymApp/views.py:907
+msgid "Method Not Allowed in select_session_type"
+msgstr "select_session_type ではメソッドは許可されていません"
+
+#: gymApp/views.py:908
+msgid "This method is not allowed"
+msgstr "このメソッドは許可されていません"
+
+#: gym_info/templates/gym_info/contact_info.html:8
+msgid "Contact Us"
+msgstr "お問い合わせ"
+
+#: gym_info/templates/gym_info/contact_info.html:25
+msgid "Contact information not available."
+msgstr "連絡先情報は利用できません。"
+
+#: gym_info/templates/gym_info/home.html:6
+msgid "Welcome to C2M Muay Thai & Fitness"
+msgstr "C2Mムエタイ＆フィットネスへようこそ"
+
+#: gym_info/templates/gym_info/home.html:15
+msgid "Welcome to Our Gym"
+msgstr "Welcome to Our Gym"
+
+#: gym_info/templates/gym_info/home.html:16
+msgid "Learn all about Muay Thai and the variety of services we offer"
+msgstr "ムエタイと私たちが提供するさまざまなサービスについて学びましょう"
+
+#: gym_info/templates/gym_info/manage_contact_info.html:8
+msgid "Manage Contact Information"
+msgstr "連絡先情報を管理"
+
+#: gym_info/templates/gym_info/new_trainer.html:7
+msgid "Add New Trainer"
+msgstr "新しいトレーナーを追加"
+
+#: gym_info/templates/gym_info/new_trainer.html:23
+msgid "Create"
+msgstr "作成"
+
+#: gym_info/templates/gym_info/trainers.html:6
+msgid "Our Trainers"
+msgstr "C2Mのトレーナー"
+
+#: gym_info/templates/gym_info/trainers.html:15
+msgid "View Profile"
+msgstr "プロフィールを見る"
+
+#: gym_info/templates/gym_info/trainers.html:20
+msgid "No trainers available at the moment."
+msgstr "現在利用可能なトレーナーはいません。"
+
+#: gym_info/views.py:13
+msgid "Learn the art of eight limbs."
+msgstr "八つの肢の技を学びましょう。"
+
+#: gym_info/views.py:17
+msgid "The classic discipline of striking and defense."
+msgstr "打撃と防御のクラシックなディシプリン。"
+
+#: gym_info/views.py:21
+msgid "Tailored fitness programs for your goals."
+msgstr "目標に合わせたフィットネスプログラム。"
+
+#: gym_info/views.py:25
+msgid "Train with the best guest trainers in the world."
+msgstr "世界最高のゲストトレーナーとトレーニングしましょう。"
+
+#: gym_info/views.py:29
+msgid "Rejuvenate with professional massage treatments."
+msgstr "プロのマッサージ治療で若返りましょう。"
+
+#: gym_info/views.py:33
+msgid "Nutritional plans for optimal performance."
+msgstr "最適なパフォーマンスのための栄養プラン。"
+
+#: gym_info/views.py:70
+msgid "Trainer updated successfully."
+msgstr "トレーナーが正常に更新されました。"
+
+#: gym_info/views.py:73 gym_info/views.py:99 gym_info/views.py:115
+msgid "Please correct the error below."
+msgstr "以下のエラーを修正してください。"
+
+#: gym_info/views.py:85
+msgid "Trainer deleted successfully."
+msgstr "トレーナーが正常に削除されました。"
+
+#: gym_info/views.py:96
+msgid "New trainer added successfully."
+msgstr "新しいトレーナーが正常に追加されました。"
+
+#: gym_info/views.py:112
+msgid "Contact information updated successfully."
+msgstr "連絡先情報が正常に更新されました。"
+
+#: products/templates/products/cart.html:7
+msgid "Your Cart"
+msgstr "あなたのカート"
+
+#: products/templates/products/cart.html:13
+msgid "Product"
+msgstr "製品"
+
+#: products/templates/products/cart.html:14
+msgid "Quantity"
+msgstr "数量"
+
+#: products/templates/products/cart.html:15
+msgid "Price"
+msgstr "価格"
+
+#: products/templates/products/cart.html:34
+msgid "Proceed to Checkout"
+msgstr "チェックアウトに進む"
+
+#: products/templates/products/cart.html:37
+msgid "Your cart is empty."
+msgstr "カートは空です。"
+
+#: products/templates/products/product_list.html:6
+#: products/templates/products/product_list.html:11
+msgid "Our Products"
+msgstr "C2Mの製品"
+
+#: products/templates/products/product_list.html:23
+msgid "Default Product Image"
+msgstr "デフォルトの製品画像"
+
+#: products/templates/products/product_list.html:29
+msgid "Add to Cart"
+msgstr "カートに追加"
+
+#: products/templates/products/product_list.html:37
+msgid "No products available."
+msgstr "利用可能な製品はありません。"
+
+#: products/views.py:30
+msgid "A new cart has been created for you."
+msgstr "新しいカートが作成されました。"
+
+#: products/views.py:39
+msgid "Item quantity reduced by one."
+msgstr "アイテムの数量が1減少しました。"
+
+#: products/views.py:42
+msgid "Item removed from cart."
+msgstr "アイテムがカートから削除されました。"
+
+#: products/views.py:66
+msgid "You are being redirected to the payment gateway."
+msgstr "支払いゲートウェイにリダイレクトされています。"
+
+#: templates/base.html:32
+msgid "Home"
+msgstr "ホーム"
+
+#: templates/base.html:35
+msgid "Products"
+msgstr "製品"
+
+#: templates/base.html:39
+msgid "Cart"
+msgstr "カート"
+
+#: templates/base.html:44
+msgid "Classes"
+msgstr "クラス"
+
+#: templates/base.html:47
+msgid "Schedule"
+msgstr "スケジュール"
+
+#: templates/base.html:49
+msgid "My Schedule"
+msgstr "私のスケジュール"
+
+#: templates/base.html:55
+msgid "Profile"
+msgstr "プロフィール"
+
+#: templates/base.html:60
+msgid "Documents"
+msgstr "ドキュメント"
+
+#: templates/base.html:64
+msgid "Trainers"
+msgstr "トレーナー"
+
+#: templates/base.html:68
+msgid "Private Classes"
+msgstr "プライベートクラス"
+
+#: templates/base.html:71
+msgid "Request Private Class"
+msgstr "プライベートクラスをリクエスト"
+
+#: templates/base.html:77
+msgid "More"
+msgstr "もっと"
+
+#: templates/base.html:80
+msgid "Contact"
+msgstr "お問い合わせ"
+
+#: templates/base.html:81
+msgid "Membership"
+msgstr "会員資格"
+
+#: templates/base.html:91 templates/base.html:112 templates/base.html:128
+#: templates/base.html:140
+msgid "Admin"
+msgstr "管理者"
+
+#: templates/base.html:94
+msgid "Admin Dashboard"
+msgstr "管理者ダッシュボード"
+
+#: templates/base.html:97
+msgid "Manage Classes"
+msgstr "クラスを管理"
+
+#: templates/base.html:98
+msgid "Manage Documents"
+msgstr "ドキュメントを管理"
+
+#: templates/base.html:99
+msgid "Manage Trainers"
+msgstr "トレーナーを管理"
+
+#: templates/base.html:100 templates/base.html:115 templates/base.html:133
+msgid "View Memberships"
+msgstr "会員資格を見る"
+
+#: templates/base.html:101 templates/base.html:116
+msgid "View Users"
+msgstr "ユーザーを見る"
+
+#: templates/base.html:102 templates/base.html:117 templates/base.html:132
+msgid "View Classes"
+msgstr "クラスを見る"
+
+#: templates/base.html:103 templates/base.html:119
+msgid "Private Class Requests List"
+msgstr "プライベートクラスのリクエストリスト"
+
+#: templates/base.html:105 templates/base.html:121
+msgid "View Trainers"
+msgstr "トレーナーを見る"
+
+#: templates/base.html:118 templates/base.html:131
+msgid "Manage Sessions"
+msgstr "セッションを管理"
+
+#: templates/base.html:143
+msgid "Scan"
+msgstr "スキャン"
+
+#: templates/base.html:148
+msgid "Logout"
+msgstr "ログアウト"
+
+#: templates/base.html:173
+msgid "SELECT MEMBERSHIP"
+msgstr "会員資格を選択"
+
+#: templates/base.html:177
+msgid "SIGN UP AND TRY A CLASS"
+msgstr "サインアップしてクラスを試す"

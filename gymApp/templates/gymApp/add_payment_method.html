@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    Add Payment Method
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>{% trans "Add Payment Method" %}</h2>
+</div>
+
+<main class="container">
+    <form id="payment-form">
+        <div id="card-element" class="form-control">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+        <div id="card-errors" class="alert alert-danger mt-3" role="alert" style="display: none;"></div>
+        <button id="submit-button" class="btn btn-primary mt-4">
+            <span id="button-text">{% trans "Add Payment Method For Monthly Membership" %}</span>
+            <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+        </button>
+    </form>
+</main>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    var stripe = Stripe('{{ stripe_public_key }}');
+    var elements = stripe.elements();
+    var cardElement = elements.create('card');
+
+    cardElement.mount('#card-element');
+
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        setLoading(true);
+
+        stripe.createPaymentMethod({
+            type: 'card',
+            card: cardElement,
+        }).then(function(result) {
+            if (result.error) {
+                showError(result.error.message);
+                setLoading(false);
+            } else {
+                // Send paymentMethod.id to your server
+                fetch("{% url 'add_payment_method' %}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({
+                        payment_method_id: result.paymentMethod.id
+                    })
+                }).then(function(response) {
+                    return response.json();
+                }).then(function(data) {
+                    if (data.status === 'success') {
+                        window.location.href = data.redirect_url;
+                    } else {
+                        showError(data.message);
+                        setLoading(false);
+                    }
+                });
+            }
+        });
+    });
+
+    function showError(message) {
+        var errorElement = document.getElementById('card-errors');
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+
+    function setLoading(isLoading) {
+        var spinner = document.getElementById('spinner');
+        var buttonText = document.getElementById('button-text');
+        if (isLoading) {
+            spinner.style.display = 'inline-block';
+            buttonText.style.display = 'none';
+        } else {
+            spinner.style.display = 'none';
+            buttonText.style.display = 'inline-block';
+        }
+    }
+</script>
+{% endblock %}

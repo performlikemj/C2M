@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Select Membership" %}
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>{% trans "Select Your Membership" %}</h2>
+</div>
+
+<main class="container">
+
+    {% if current_membership and current_membership.membership_type and current_membership.is_active %}
+    <div class="service-card">
+        <div class="service-card-body">
+            <h3 class="service-card-title">{% trans "Your Current Membership" %}</h3>
+            <p class="service-card-text">{% trans "Type" %}: <strong>{{ current_membership.membership_type.name }}</strong></p>
+            <p class="service-card-text">{% trans "Sessions Remaining" %}: <strong>{{ current_membership.remaining_sessions }}</strong></p>
+            <p class="service-card-text">{% trans "Personal Trainings Remaining" %}: <strong>{{ current_membership.remaining_personal_trainings }}</strong></p>
+            <p class="service-card-text">{% trans "Start Date" %}: <strong>{{ current_membership.start_date }}</strong></p>
+            <p class="service-card-text">{% trans "End Date" %}: <strong>{{ current_membership.end_date|default:"{% trans 'None' %}" }}</strong></p>
+
+            <!-- Button to show the cancellation form -->
+            <button id="show-cancel-form" class="btn btn-danger">{% trans "Cancel Membership" %}</button>
+         
+            <!-- Stripe Invoices Link -->
+            <a href="https://billing.stripe.com/p/login/eVa02P9i7fmd6PufYY" class="btn btn-secondary" target="_blank">{% trans "View Invoices" %}</a>
+
+            <!-- Cancellation form hidden by default -->
+            <form id="cancel-form" method="post" action="{% url 'select_membership' %}" style="display: none; margin-top: 15px;">
+                {% csrf_token %}
+                {{ cancellation_form.as_p }}
+                <button type="submit" name="cancel_membership" class="btn btn-danger">{% trans "Submit Cancellation" %}</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning">{% trans "You do not have a current membership." %}</div>
+    {% endif %}
+
+    <h3>{% trans "Available Memberships" %}</h3>
+    <div class="row">
+        {% for membership_type in membership_types %}
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="service-card">
+                <img src="{{ membership_type.image.url }}" alt="{% trans 'Membership Image' %}" class="service-card-img-top">
+                <div class="service-card-body">
+                    <h4 class="service-card-title">{{ membership_type.name }}</h4>
+                    <p class="service-card-text">{{ membership_type.description }}</p>
+                    <p class="service-card-text">{% trans "Price for Men" %}: ¥{{ membership_type.price_yen_male }}</p>
+                    <p class="service-card-text">{% trans "Price for Women" %}: ¥{{ membership_type.price_yen_female }}</p>
+                    <a href="{% url 'create_checkout_session' membership_type.id %}" class="btn btn-primary">{% trans "Purchase" %}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const showCancelFormBtn = document.getElementById("show-cancel-form");
+        const cancelForm = document.getElementById("cancel-form");
+
+        showCancelFormBtn.addEventListener("click", function() {
+            if (cancelForm.style.display === "none") {
+                cancelForm.style.display = "block";
+            } else {
+                cancelForm.style.display = "none";
+            }
+        });
+    });
+</script>
+{% endblock %}

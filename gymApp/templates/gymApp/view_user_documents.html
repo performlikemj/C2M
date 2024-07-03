@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+    <h2 class="page-header">{% blocktrans with username=user.username %}Documents Submitted by {{ username }}{% endblocktrans %}</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{% trans "Document" %}</th>
+                <th>{% trans "Submission Date" %}</th>
+                <th>{% trans "Status" %}</th>
+                <th>{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in submissions %}
+            <tr>
+                <td>{{ submission.document.name }}</td>
+                <td>{{ submission.submitted|date:"Y-m-d H:i" }}</td>
+                <td>
+                    <form method="post" action="{% url 'verify_document' submission.pk %}">
+                        {% csrf_token %}
+                        <input type="checkbox" name="verified" id="verified-{{ submission.pk }}" onchange="this.form.submit()" {% if submission.verified %}checked{% endif %}>
+                        <label for="verified-{{ submission.pk }}">{% trans "Verified" %}</label>
+                    </form>
+                </td>
+                <td>
+                    <a href="{{ submission.submission.url }}" download class="btn btn-sm btn-success">{% trans "Download" %}</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">{% trans "No documents submitted yet." %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

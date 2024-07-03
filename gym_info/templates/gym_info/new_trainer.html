@@ -1,0 +1,47 @@
+<!-- This is the form to add a new trainer to the gym. -->
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4 form-container">
+    <h2>{% trans "Add New Trainer" %}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }} <!-- Default rendering of labels -->
+                    {{ field }}  <!-- Default rendering of fields -->
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block additional_styles %}
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .btn {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
+</style>
+{% endblock %}

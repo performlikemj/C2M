@@ -1,0 +1,27 @@
+<!-- class_schedule/request_private_class.html -->
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{% trans "Request a Private Class" %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">{% trans "Submit Request" %}</button>
+    </form>
+</div>
+{% endblock %}

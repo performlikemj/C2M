@@ -1,0 +1,41 @@
+<!-- documentation/templates/documentation/list_documents.html -->
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<main class="container">
+    <h2 class="page-header">{% trans "Documents Center" %}</h2>
+    <div class="service-card">
+        <div class="service-card-body">
+            <h3>{% trans "Available Documents" %}</h3>
+            <ul>
+                {% for document in documents %}
+                <li>
+                    <span class="service-card-title">{{ document.name }}</span>
+                    <div class="service-card-text">
+                        <a href="{{ document.file.url }}" download class="btn">{% trans "Download" %}</a>
+                        <a href="{% url 'submit_document' document.id %}" class="btn">{% trans "Submit" %}</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="service-card" style="margin-top: 20px;">
+        <div class="service-card-body">
+            <h3>{% trans "Your Submissions" %}</h3>
+            <ul>
+                {% for submission in submissions %}
+                <li>
+                    <span class="service-card-title">{{ submission.document.name }}</span>
+                    <span> - {% trans "Submitted on" %} {{ submission.submitted|date:"Y-m-d H:i" }} - {% trans "Verified" %}: {{ submission.verified }}</span>
+                </li>
+                {% empty %}
+                <li>{% trans "No submissions yet." %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+{% endblock %}

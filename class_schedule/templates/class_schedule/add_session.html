@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{% blocktrans with class.title as class_title %}Add New Session for {{ class_title }}{% endblocktrans %}</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">{% trans "Add Session" %}</button>
+    </form>
+    <a href="{% url 'class_detail' class_id=class.id %}" class="btn btn-outline-secondary mt-2">{% trans "Back to Class Details" %}</a>
+</div>
+{% endblock %}

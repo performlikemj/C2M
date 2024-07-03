@@ -1,0 +1,38 @@
+<!-- templates/class_schedule/private_class_requests.html -->
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="container">
+    <h2>{% trans "My Private Class Requests" %}</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "Date" %}</th>
+                <th>{% trans "Trainer" %}</th>
+                <th>{% trans "Status" %}</th>
+                <th>{% trans "Notes" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request.requested_date }}</td>
+                <td>
+                    {% if request.trainer %}
+                        {{ request.trainer.name }}
+                    {% else %}
+                        {% trans "Any" %}
+                    {% endif %}
+                </td>
+                <td>{{ request.get_status_display }}</td>
+                <td>{{ request.notes }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">{% trans "No private class requests found." %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

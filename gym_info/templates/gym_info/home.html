@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Welcome to C2M Muay Thai & Fitness' %}
+{% endblock %}
+
+{% block additional_styles %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-4">{% trans 'Welcome to Our Gym' %}</h1>
+    <p class="text-center mb-4">{% trans 'Learn all about Muay Thai and the variety of services we offer' %}</p>
+
+    <!-- Services Section -->
+    <div class="row">
+        {% for service, details in services.items %}
+            <div class="col-md-4 col-sm-6 mb-3">
+                <div class="service-card">
+                    <img src="{% static details.image %}" alt="{% trans service %}">
+                    <div class="service-card-body">
+                        <h5 class="service-card-title">{% trans service %}</h5>
+                        <p class="service-card-text">{% trans details.description %}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

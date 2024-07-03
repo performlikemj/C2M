@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{% trans "Private Class Requests" %}</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{% trans "User" %}</th>
+                <th>{% trans "Trainer" %}</th>
+                <th>{% trans "Requested Date" %}</th>
+                <th>{% trans "Message" %}</th>
+                <th>{% trans "Status" %}</th>
+                <th>{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request.user.username }}</td>
+                <td>
+                    {% if request.trainer %}
+                        {{ request.trainer.name }}
+                    {% else %}
+                        {% trans "Not Assigned" %}
+                    {% endif %}
+                </td>
+                <td>{{ request.requested_date }}</td>
+                <td>{{ request.message }}</td>
+                <td>{{ request.get_status_display }}</td>
+                <td>
+                    <form method="post" action="{% url 'approve_private_class_request' request.id %}">
+                        {% csrf_token %}
+                        <button type="submit" name="action" value="approve" class="btn btn-success">{% trans "Approve" %}</button>
+                        <button type="submit" name="action" value="deny" class="btn btn-danger">{% trans "Deny" %}</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

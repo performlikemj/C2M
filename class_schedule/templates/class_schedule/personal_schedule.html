@@ -1,0 +1,76 @@
+<!-- Personal Schedule Template -->
+{% extends "base.html" %}
+{% load static %}
+{% load tz my_filters %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4 profile-container">
+    {% if qr_code_url %}
+        <div class="text-center mb-4 qr-container">
+            <img src="{{ qr_code_url }}" alt='{% trans "QR Code" %}' class="qr-code-img" data-bs-toggle="modal" data-bs-target="#qrCodeModal">
+        </div>
+        <!-- QR Code Modal -->
+        <div class="modal fade" id="qrCodeModal" tabindex="-1" aria-labelledby="qrCodeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src="{{ qr_code_url }}" alt='{% trans "Large QR Code" %}' class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <h2>{% trans "My Scheduled Classes" %}</h2>
+    {% if upcoming_bookings %}
+        <div class="list-group">
+            {% for booking in upcoming_bookings %}
+                <a href="{% url 'class_detail' booking.session.class_meta.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ booking.session.class_meta.title }}</h5>
+                        <small class="text-muted">{{ booking.session.start_time|date:"D, M d, Y H:i" }}</small>
+                    </div>
+                    <p class="mb-1">{{ booking.session.description|default:"{% trans 'No description available.' %}" }}</p>
+                    <small>{% trans "Ends at" %} {{ booking.session.end_time|date:"H:i" }}</small>
+                </a>
+                {% if booking.session.start_time|date:"U"|make_int > now|date:"U"|make_int|add:86400 %}
+                    <form method="post" action="{% url 'unbook_class' booking.id %}" class="mt-2 cancel-booking-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">{% trans "Cancel Booking" %}</button>
+                    </form>
+                {% else %}
+                    <button disabled class="btn btn-secondary">{% trans "Cancellation not allowed" %}</button>
+                    <small class="text-muted">{% trans "Cancellation not allowed within 24 hours of the session start time." %}</small>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">{% trans "You have no upcoming booked classes." %}</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+<style>
+    .profile-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .qr-container img {
+        max-width: 100px;  /* Smaller QR code for less visual dominance */
+        cursor: pointer;
+    }
+    .list-group-item {
+        margin-bottom: 10px;
+        border-left: 5px solid #007bff;  /* Adds a blue vertical bar to the left */
+    }
+    .cancel-booking-form button {
+        width: 100%;  /* Makes the button full-width */
+    }
+</style>
+{% endblock %}

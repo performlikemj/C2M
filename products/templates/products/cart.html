@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{% trans "Your Cart" %}</h1>
+    {% if cart.items.all %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{% trans "Product" %}</th>
+                    <th>{% trans "Quantity" %}</th>
+                    <th>{% trans "Price" %}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart.items.all %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>${{ item.product.price_usd }}</td>
+                    <td>
+                        <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger btn-sm">{% trans "Remove" %}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="text-right">
+        <a href="{% url 'create_checkout_session' %}" class="btn btn-primary">{% trans "Proceed to Checkout" %}</a>
+    </div>
+    {% else %}
+    <p>{% trans "Your cart is empty." %}</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}Account Locked{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="alert alert-danger text-center">
+                <h1>{% trans "Account Locked" %}</h1>
+                <p>{% trans "Your account has been locked due to multiple failed login attempts. Please try again later or contact support for assistance." %}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

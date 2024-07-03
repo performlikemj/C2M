@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Delete Membership" %}</h2>
+<p>{% blocktrans with membership.user.username as username %}Are you sure you want to delete the membership of {{ username }}?{% endblocktrans %}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">{% trans "Yes, delete" %}</button>
+</form>
+<a href="{% url 'manage_memberships' %}">{% trans "No, go back" %}</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{% trans "Add a New Class" %}</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">{% trans "Add Class" %}</button>
+    </form>
+    <a href="{% url 'class_list' %}" class="btn btn-outline-secondary mt-2">{% trans "Back to Classes" %}</a>
+</div>
+{% endblock %}

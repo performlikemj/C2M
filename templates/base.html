@@ -1,0 +1,222 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_available_languages as LANGUAGES %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}C2M MUAY THAI{% endblock %}</title>
+    <!-- Bootstrap CSS Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="light-mode">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/nav-logo.png' %}" alt="C2M MUAY THAI">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto navbar-nav-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'product_list' %}">{% trans "Products" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_cart' %}">
+                            <i class="fas fa-shopping-cart"></i> {% trans "Cart" %}
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="classesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans "Classes" %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="classesDropdown">
+                            <li><a class="dropdown-item" href="{% url 'class_list' %}">{% trans "Schedule" %}</a></li>
+                            {% if request.user.is_authenticated and 'Trainers' not in user_groups and 'CEO and Boss' not in user_groups %}
+                                <li><a class="dropdown-item" href="{% url 'personal_schedule' %}">{% trans "My Schedule" %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans "Profile" %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="{% url 'edit_own_profile' %}">{% trans "Edit Profile" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'personal_schedule' %}">{% trans "QR Code" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'list_documents' %}">{% trans "Documents" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'trainers' %}">{% trans "Trainers" %}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans "Private Classes" %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'request_private_class' %}">{% trans "Request Private Class" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'private_class_requests' %}">{% trans "Private Class Requests" %}</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans "More" %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                            <li><a class="dropdown-item" href="{% url 'contact_info' %}">{% trans "Contact" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'select_membership' %}">{% trans "Membership" %}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right">
+                    {% if request.user.is_authenticated %}
+                        {% if 'CEO and Boss' in user_groups %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {% trans "Admin" %}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'admin:index' %}">{% trans "Admin Dashboard" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'list_users' %}">{% trans "Manage Users" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'manage_memberships' %}">{% trans "Manage Memberships" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'add_class' %}">{% trans "Manage Classes" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'list_documents' %}">{% trans "Manage Documents" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'trainers' %}">{% trans "Manage Trainers" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'manage_memberships' %}">{% trans "View Memberships" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'list_users' %}">{% trans "View Users" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'class_list' %}">{% trans "View Classes" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'private_class_requests_list' %}">{% trans "Private Class Requests List" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'list_documents' %}">{% trans "View Documents" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'trainers' %}">{% trans "View Trainers" %}</a></li> 
+                                </ul>
+                            </li>
+                        {% elif 'Team Members' in user_groups %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {% trans "Admin" %}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'manage_memberships' %}">{% trans "View Memberships" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'list_users' %}">{% trans "View Users" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'class_list' %}">{% trans "View Classes" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'class_list' %}">{% trans "Manage Sessions" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'private_class_requests_list' %}">{% trans "Private Class Requests List" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'list_documents' %}">{% trans "View Documents" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'trainers' %}">{% trans "View Trainers" %}</a></li>
+                                </ul>
+                            </li>
+                        {% elif 'Trainers' in user_groups %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {% trans "Admin" %}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'class_list' %}">{% trans "Manage Sessions" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'class_list' %}">{% trans "View Classes" %}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'manage_memberships' %}">{% trans "View Memberships" %}</a></li>
+                                </ul>
+                            </li>
+                        {% elif 'Kiosk' in user_groups %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {% trans "Admin" %}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'scan' %}">{% trans "Scan" %}</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="mode-switcher">
+                            <i class="fas fa-lightbulb" id="toggle-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="header">
+        <p>C2M MUAY THAI</p>
+        <h1>FOR FITNESS AND FUN</h1>
+        {% if user.is_authenticated %}
+            <a href="{% url 'select_membership' %}">
+                <button class="button">{% trans "SELECT MEMBERSHIP" %}</button>
+            </a>
+        {% else %}
+            <a href="{% url 'register' %}">
+                <button class="button">{% trans "SIGN UP AND TRY A CLASS" %}</button>
+            </a>
+        {% endif %}
+    </div>
+    
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" style="color: #155724; background-color: #d4edda; border-color: #c3e6cb; padding: .75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem;">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}">
+            <select name="language" onchange="this.form.submit()" class="btn btn-outline-primary btn-sm">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                    {{ language.name_local }} ({{ language.name }})
+                </option>
+                {% endfor %}
+            </select>
+        </form>
+    </div>
+
+
+{% block content %}
+<!-- Content from child templates will go here -->
+{% endblock %}
+
+<footer class="footer">
+    <p>Copyright © C2M MUAY THAI {{ now.year }}</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% block additional_scripts %}{% endblock %}
+</body>
+</html>

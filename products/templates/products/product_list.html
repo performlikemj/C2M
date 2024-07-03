@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Our Products" %}
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>{% trans "Our Products" %}</h2>
+</div>
+
+<main class="container">
+    <!-- Display the product grid -->
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="service-card">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="service-card-img-top">
+                {% else %}
+                <img src="{% static 'images/default-product.jpg' %}" alt="{% trans 'Default Product Image' %}" class="service-card-img-top">
+                {% endif %}
+                <div class="service-card-body">
+                    <h4 class="service-card-title">{{ product.name }}</h4>
+                    <p class="service-card-text">{{ product.description|truncatewords:20 }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">{% trans "Add to Cart" %}</a>
+                        <span class="text-muted">${{ product.price_usd }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="alert alert-warning">{% trans "No products available." %}</p>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

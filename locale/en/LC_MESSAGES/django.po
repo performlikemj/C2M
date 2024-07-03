@@ -1,0 +1,1356 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-30 06:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: c2m_gym/settings.py:175
+msgid "English"
+msgstr "English"
+
+#: c2m_gym/settings.py:176
+msgid "Japanese"
+msgstr "Japanese"
+
+#: class_schedule/models.py:24
+msgid "Is this session recurring weekly?"
+msgstr "Is this session recurring weekly?"
+
+#: class_schedule/models.py:25
+msgid "Recur until this date, weekly."
+msgstr "Recur until this date, weekly."
+
+#: class_schedule/models.py:32 gymApp/models.py:262
+msgid "Session time must be between 10 am and 10 pm."
+msgstr "Session time must be between 10 am and 10 pm."
+
+#: class_schedule/models.py:41
+msgid "Trainer is already booked for another session during this time."
+msgstr "Trainer is already booked for another session during this time."
+
+#: class_schedule/templates/class_schedule/add_class.html:6
+msgid "Add a New Class"
+msgstr "Add a New Class"
+
+#: class_schedule/templates/class_schedule/add_class.html:10
+msgid "Add Class"
+msgstr "Add Class"
+
+#: class_schedule/templates/class_schedule/add_class.html:12
+msgid "Back to Classes"
+msgstr "Back to Classes"
+
+#: class_schedule/templates/class_schedule/add_session.html:6
+#, python-format
+msgid "Add New Session for %(class_title)s"
+msgstr "Add New Session for %(class_title)s"
+
+#: class_schedule/templates/class_schedule/add_session.html:10
+msgid "Add Session"
+msgstr "Add Session"
+
+#: class_schedule/templates/class_schedule/add_session.html:12
+msgid "Back to Class Details"
+msgstr "Back to Class Details"
+
+#: class_schedule/templates/class_schedule/class_detail.html:14
+msgid "Add New Session"
+msgstr "Add New Session"
+
+#: class_schedule/templates/class_schedule/class_detail.html:20
+msgid "Upcoming Sessions"
+msgstr "Upcoming Sessions"
+
+#: class_schedule/templates/class_schedule/class_detail.html:31
+msgid "Book Class"
+msgstr "Book Class"
+
+#: class_schedule/templates/class_schedule/class_detail.html:35
+#: class_schedule/templates/class_schedule/private_class_requests.html:11
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:11
+#: class_schedule/templates/class_schedule/session_detail.html:27
+msgid "Trainer"
+msgstr "Trainer"
+
+#: class_schedule/templates/class_schedule/class_detail.html:39
+msgid "TBA"
+msgstr "TBA"
+
+#: class_schedule/templates/class_schedule/class_detail.html:46
+msgid "No upcoming sessions."
+msgstr "No upcoming sessions."
+
+#: class_schedule/templates/class_schedule/class_detail.html:51
+msgid "Past Sessions"
+msgstr "Past Sessions"
+
+#: class_schedule/templates/class_schedule/class_detail.html:57
+msgid "Session has ended."
+msgstr "Session has ended."
+
+#: class_schedule/templates/class_schedule/class_detail.html:62
+msgid "No past sessions."
+msgstr "No past sessions."
+
+#: class_schedule/templates/class_schedule/class_list.html:7
+msgid "Class Schedule"
+msgstr "Class Schedule"
+
+#: class_schedule/templates/class_schedule/class_list.html:13
+msgid "Add New Class"
+msgstr "Add New Class"
+
+#: class_schedule/templates/class_schedule/class_list.html:18
+msgid "Week navigation"
+msgstr "Week navigation"
+
+#: class_schedule/templates/class_schedule/class_list.html:19
+msgid "Previous Week"
+msgstr "Previous Week"
+
+#: class_schedule/templates/class_schedule/class_list.html:20
+msgid "Current Week"
+msgstr "Current Week"
+
+#: class_schedule/templates/class_schedule/class_list.html:21
+msgid "Next Week"
+msgstr "Next Week"
+
+#: class_schedule/templates/class_schedule/class_list.html:40
+msgid "No sessions"
+msgstr "No sessions"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:10
+#: templates/base.html:59
+msgid "QR Code"
+msgstr "QR Code"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:17
+msgid "Large QR Code"
+msgstr "Large QR Code"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:24
+msgid "My Scheduled Classes"
+msgstr "My Scheduled Classes"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:34
+msgid "Ends at"
+msgstr "Ends at"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:39
+#: class_schedule/templates/class_schedule/session_detail.html:36
+msgid "Cancel Booking"
+msgstr "Cancel Booking"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:42
+msgid "Cancellation not allowed"
+msgstr "Cancellation not allowed"
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:43
+msgid "Cancellation not allowed within 24 hours of the session start time."
+msgstr "Cancellation not allowed within 24 hours of the session start time."
+
+#: class_schedule/templates/class_schedule/personal_schedule.html:48
+msgid "You have no upcoming booked classes."
+msgstr "You have no upcoming booked classes."
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:6
+msgid "My Private Class Requests"
+msgstr "My Private Class Requests"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:10
+#: class_schedule/templates/class_schedule/session_detail.html:21
+msgid "Date"
+msgstr "Date"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:12
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:14
+#: documentation/templates/documentation/document_status.html:9
+#: gymApp/templates/gymApp/view_user_documents.html:13
+msgid "Status"
+msgstr "Status"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:13
+msgid "Notes"
+msgstr "Notes"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:24
+msgid "Any"
+msgstr "Any"
+
+#: class_schedule/templates/class_schedule/private_class_requests.html:32
+msgid "No private class requests found."
+msgstr "No private class requests found."
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:6
+#: templates/base.html:72
+msgid "Private Class Requests"
+msgstr "Private Class Requests"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:10
+msgid "User"
+msgstr "User"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:12
+msgid "Requested Date"
+msgstr "Requested Date"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:13
+msgid "Message"
+msgstr "Message"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:15
+#: gymApp/templates/gymApp/list_users.html:13
+#: gymApp/templates/gymApp/manage_memberships.html:15
+#: gymApp/templates/gymApp/view_user_documents.html:14
+msgid "Actions"
+msgstr "Actions"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:26
+msgid "Not Assigned"
+msgstr "Not Assigned"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:35
+msgid "Approve"
+msgstr "Approve"
+
+#: class_schedule/templates/class_schedule/private_class_requests_list.html:36
+msgid "Deny"
+msgstr "Deny"
+
+#: class_schedule/templates/class_schedule/request_private_class.html:6
+msgid "Request a Private Class"
+msgstr "Request a Private Class"
+
+#: class_schedule/templates/class_schedule/request_private_class.html:24
+msgid "Submit Request"
+msgstr "Submit Request"
+
+#: class_schedule/templates/class_schedule/session_detail.html:10
+msgid "Session Details"
+msgstr "Session Details"
+
+#: class_schedule/templates/class_schedule/session_detail.html:24
+msgid "Time"
+msgstr "Time"
+
+#: class_schedule/templates/class_schedule/session_detail.html:41
+msgid "Book Session"
+msgstr "Book Session"
+
+#: class_schedule/templates/class_schedule/session_detail.html:47
+msgid "Please"
+msgstr "Please"
+
+#: class_schedule/templates/class_schedule/session_detail.html:47
+msgid "log in"
+msgstr "log in"
+
+#: class_schedule/templates/class_schedule/session_detail.html:47
+msgid "to book the session."
+msgstr "to book the session."
+
+#: class_schedule/templates/class_schedule/session_detail.html:54
+msgid "Remove This Session"
+msgstr "Remove This Session"
+
+#: class_schedule/templates/class_schedule/session_detail.html:58
+msgid "Remove All Recurring Sessions"
+msgstr "Remove All Recurring Sessions"
+
+#: class_schedule/templates/class_schedule/session_detail.html:68
+msgid "Manage Members"
+msgstr "Manage Members"
+
+#: class_schedule/templates/class_schedule/session_detail.html:71
+msgid "Current Members"
+msgstr "Current Members"
+
+#: class_schedule/templates/class_schedule/session_detail.html:78
+#: products/templates/products/cart.html:26
+msgid "Remove"
+msgstr "Remove"
+
+#: class_schedule/templates/class_schedule/session_detail.html:84
+msgid "Add Member to Session"
+msgstr "Add Member to Session"
+
+#: class_schedule/templates/class_schedule/session_detail.html:88
+msgid "Select Member"
+msgstr "Select Member"
+
+#: class_schedule/templates/class_schedule/session_detail.html:95
+msgid "Add Member"
+msgstr "Add Member"
+
+#: class_schedule/views.py:40
+msgid "Invalid week parameter"
+msgstr "Invalid week parameter"
+
+#: class_schedule/views.py:109
+msgid "You have already booked this class."
+msgstr "You have already booked this class."
+
+#: class_schedule/views.py:112
+msgid "Class booked successfully."
+msgstr "Class booked successfully."
+
+#: class_schedule/views.py:119
+msgid "You cannot cancel bookings for past sessions."
+msgstr "You cannot cancel bookings for past sessions."
+
+#: class_schedule/views.py:121
+msgid "Bookings can only be canceled more than 24 hours in advance."
+msgstr "Bookings can only be canceled more than 24 hours in advance."
+
+#: class_schedule/views.py:124
+msgid "Your booking has been successfully canceled."
+msgstr "Your booking has been successfully canceled."
+
+#: class_schedule/views.py:136
+msgid "Membership is not active."
+msgstr "Membership is not active."
+
+#: class_schedule/views.py:171
+msgid "New class added successfully."
+msgstr "New class added successfully."
+
+#: class_schedule/views.py:181
+msgid "Class removed successfully."
+msgstr "Class removed successfully."
+
+#: class_schedule/views.py:206
+msgid "New session added successfully."
+msgstr "New session added successfully."
+
+#: class_schedule/views.py:217 class_schedule/views.py:237
+msgid "Session removed successfully."
+msgstr "Session removed successfully."
+
+#: class_schedule/views.py:251
+#, python-format
+msgid "%s added to session."
+msgstr "%s added to session."
+
+#: class_schedule/views.py:253
+#, python-format
+msgid "%s is already in the session."
+msgstr "%s is already in the session."
+
+#: class_schedule/views.py:263
+msgid "Member removed from session successfully."
+msgstr "Member removed from session successfully."
+
+#: class_schedule/views.py:274
+msgid "You must be a member to request a private class."
+msgstr "You must be a member to request a private class."
+
+#: class_schedule/views.py:277
+msgid "Your private class request has been submitted successfully."
+msgstr "Your private class request has been submitted successfully."
+
+#: class_schedule/views.py:280
+msgid ""
+"There was an error with your submission. Please correct the errors below."
+msgstr ""
+
+#: class_schedule/views.py:311
+#, python-format
+msgid "Private class request from %s approved."
+msgstr "Private class request from %s approved."
+
+#: class_schedule/views.py:314
+#, python-format
+msgid "Private class request from %s denied."
+msgstr "Private class request from %s denied."
+
+#: documentation/templates/documentation/document_status.html:6
+#: documentation/templates/documentation/list_documents.html:27
+msgid "Your Submissions"
+msgstr "Your Submissions"
+
+#: documentation/templates/documentation/document_status.html:9
+#: documentation/templates/documentation/list_documents.html:32
+msgid "Submitted on"
+msgstr "Submitted on"
+
+#: documentation/templates/documentation/list_documents.html:7
+msgid "Documents Center"
+msgstr "Documents Center"
+
+#: documentation/templates/documentation/list_documents.html:10
+msgid "Available Documents"
+msgstr "Available Documents"
+
+#: documentation/templates/documentation/list_documents.html:16
+#: gymApp/templates/gymApp/view_user_documents.html:30
+msgid "Download"
+msgstr "Download"
+
+#: documentation/templates/documentation/list_documents.html:17
+msgid "Submit"
+msgstr "Submit"
+
+#: documentation/templates/documentation/list_documents.html:32
+#: gymApp/templates/gymApp/view_user_documents.html:26
+msgid "Verified"
+msgstr "Verified"
+
+#: documentation/templates/documentation/list_documents.html:35
+msgid "No submissions yet."
+msgstr "No submissions yet."
+
+#: documentation/templates/documentation/submit_document.html:7
+msgid "Submit Document"
+msgstr "Submit Document"
+
+#: documentation/templates/documentation/submit_document.html:12
+msgid "Upload"
+msgstr "Upload"
+
+#: gymApp/forms.py:36
+msgid "Pending verification"
+msgstr "Pending verification"
+
+#: gymApp/forms.py:41 gymApp/forms.py:99
+msgid "A user with this email already exists."
+msgstr "A user with this email already exists."
+
+#: gymApp/forms.py:52
+msgid "You must provide your old password to set a new password."
+msgstr "You must provide your old password to set a new password."
+
+#: gymApp/forms.py:54
+msgid "The two password fields didn't match."
+msgstr "The two password fields didn't match."
+
+#: gymApp/forms.py:78 gymApp/templates/gymApp/list_users.html:12
+msgid "Email"
+msgstr "Email"
+
+#: gymApp/forms.py:81 gymApp/forms.py:124
+msgid "Gender"
+msgstr "Gender"
+
+#: gymApp/forms.py:93
+msgid "A user with this username already exists."
+msgstr "A user with this username already exists."
+
+#: gymApp/forms.py:119
+msgid "Select your membership type"
+msgstr "Select your membership type"
+
+#: gymApp/forms.py:140
+msgid ""
+"Trial - 4000.00¥, Try out our gym and classes. Become a member and have the "
+"trial fee deducted from your first month's membership!"
+msgstr ""
+
+#: gymApp/models.py:31
+msgid "Male"
+msgstr "Male"
+
+#: gymApp/models.py:32
+msgid "Female"
+msgstr "Female"
+
+#: gymApp/models.py:240
+msgid "A trainer must be assigned for personal training sessions."
+msgstr "A trainer must be assigned for personal training sessions."
+
+#: gymApp/models.py:255
+msgid "Trainer is already booked for a private session during this time."
+msgstr "Trainer is already booked for a private session during this time."
+
+#: gymApp/templates/gymApp/add_membership.html:7
+msgid "Add New Membership Type"
+msgstr "Add New Membership Type"
+
+#: gymApp/templates/gymApp/add_membership.html:11
+msgid "Add Membership Type"
+msgstr "Add Membership Type"
+
+#: gymApp/templates/gymApp/add_payment_method.html:11
+msgid "Add Payment Method"
+msgstr "Add Payment Method"
+
+#: gymApp/templates/gymApp/add_payment_method.html:21
+msgid "Add Payment Method For Monthly Membership"
+msgstr "Add Payment Method For Monthly Membership"
+
+#: gymApp/templates/gymApp/add_user.html:7
+msgid "Add New User"
+msgstr "Add New User"
+
+#: gymApp/templates/gymApp/add_user.html:11
+msgid "Add User"
+msgstr "Add User"
+
+#: gymApp/templates/gymApp/check_in.html:6
+#: gymApp/templates/gymApp/check_process.html:19
+msgid "Check In"
+msgstr "Check In"
+
+#: gymApp/templates/gymApp/check_in.html:9
+msgid "Scan QR Code to Check In"
+msgstr "Scan QR Code to Check In"
+
+#: gymApp/templates/gymApp/check_out.html:6
+#: gymApp/templates/gymApp/check_process.html:20
+msgid "Check Out"
+msgstr "Check Out"
+
+#: gymApp/templates/gymApp/check_out.html:9
+msgid "Scan QR Code to Check Out"
+msgstr "Scan QR Code to Check Out"
+
+#: gymApp/templates/gymApp/check_process.html:17
+msgid "Scan QR Code"
+msgstr "Scan QR Code"
+
+#: gymApp/templates/gymApp/check_process.html:32
+#: gymApp/templates/gymApp/select_session_type.html:6
+msgid "Select Session Type"
+msgstr "Select Session Type"
+
+#: gymApp/templates/gymApp/check_process.html:33
+msgid "Remaining Regular Sessions:"
+msgstr "Remaining Regular Sessions:"
+
+#: gymApp/templates/gymApp/check_process.html:34
+msgid "Remaining Personal Training Sessions:"
+msgstr "Remaining Personal Training Sessions:"
+
+#: gymApp/templates/gymApp/check_process.html:38
+#: gymApp/templates/gymApp/select_session_type.html:14
+msgid "Use Regular Session"
+msgstr "Use Regular Session"
+
+#: gymApp/templates/gymApp/check_process.html:42
+#: gymApp/templates/gymApp/select_session_type.html:18
+msgid "Use Personal Training Session"
+msgstr "Use Personal Training Session"
+
+#: gymApp/templates/gymApp/check_process.html:45
+msgid "Select Session:"
+msgstr "Select Session:"
+
+#: gymApp/templates/gymApp/check_process.html:48
+msgid "Select Trainer:"
+msgstr "Select Trainer:"
+
+#: gymApp/templates/gymApp/check_process.html:51
+#: gymApp/templates/gymApp/select_session_type.html:39
+msgid "Select"
+msgstr "Select"
+
+#: gymApp/templates/gymApp/collect_payment.html:6
+msgid "Collect Payment"
+msgstr "Collect Payment"
+
+#: gymApp/templates/gymApp/collect_payment.html:11
+msgid "Payment Information"
+msgstr "Payment Information"
+
+#: gymApp/templates/gymApp/collect_payment.html:14
+msgid "Submit Payment"
+msgstr "Submit Payment"
+
+#: gymApp/templates/gymApp/delete_membership.html:6
+msgid "Delete Membership"
+msgstr "Delete Membership"
+
+#: gymApp/templates/gymApp/delete_membership.html:7
+#, python-format
+msgid "Are you sure you want to delete the membership of %(username)s?"
+msgstr "Are you sure you want to delete the membership of %(username)s?"
+
+#: gymApp/templates/gymApp/delete_membership.html:10
+msgid "Yes, delete"
+msgstr "Yes, delete"
+
+#: gymApp/templates/gymApp/delete_membership.html:12
+msgid "No, go back"
+msgstr "No, go back"
+
+#: gymApp/templates/gymApp/delete_user.html:7
+msgid "Delete User"
+msgstr "Delete User"
+
+#: gymApp/templates/gymApp/delete_user.html:8
+#, python-format
+msgid "Are you sure you want to delete %(username)s?"
+msgstr "Are you sure you want to delete %(username)s?"
+
+#: gymApp/templates/gymApp/delete_user.html:11
+#: gymApp/templates/gymApp/list_users.html:23
+#: gymApp/templates/gymApp/manage_memberships.html:27
+#: gym_info/templates/gym_info/trainer_detail.html:14
+msgid "Delete"
+msgstr "Delete"
+
+#: gymApp/templates/gymApp/delete_user.html:12
+msgid "Cancel"
+msgstr "Cancel"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:7 templates/base.html:58
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:25
+#: gymApp/templates/gymApp/list_users.html:11
+#: gymApp/templates/gymApp/login.html:22
+#: gymApp/templates/gymApp/manage_memberships.html:11
+msgid "Username"
+msgstr "Username"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:29
+msgid "First Name"
+msgstr "First Name"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:33
+msgid "Last Name"
+msgstr "Last Name"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:37
+msgid "Current Email Address"
+msgstr "Current Email Address"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:41
+msgid "New Email Address"
+msgstr "New Email Address"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:43
+#: gymApp/templates/gymApp/edit_own_profile.html:53
+#: gymApp/templates/gymApp/edit_own_profile.html:58
+msgid "Leave blank if not changing"
+msgstr "Leave blank if not changing"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:46
+msgid "Old Password"
+msgstr "Old Password"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:48
+msgid "Required to set a new password"
+msgstr "Required to set a new password"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:51
+msgid "New Password"
+msgstr "New Password"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:56
+msgid "Confirm New Password"
+msgstr "Confirm New Password"
+
+#: gymApp/templates/gymApp/edit_own_profile.html:60
+#: gym_info/templates/gym_info/manage_contact_info.html:12
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#: gymApp/templates/gymApp/edit_user.html:7
+msgid "Edit User"
+msgstr "Edit User"
+
+#: gymApp/templates/gymApp/edit_user.html:11
+msgid "Update User"
+msgstr "Update User"
+
+#: gymApp/templates/gymApp/list_users.html:7 templates/base.html:95
+msgid "Manage Users"
+msgstr "Manage Users"
+
+#: gymApp/templates/gymApp/list_users.html:22
+#: gymApp/templates/gymApp/manage_memberships.html:26
+#: gym_info/templates/gym_info/trainer_detail.html:13
+msgid "Edit"
+msgstr "Edit"
+
+#: gymApp/templates/gymApp/list_users.html:24 templates/base.html:104
+#: templates/base.html:120
+msgid "View Documents"
+msgstr "View Documents"
+
+#: gymApp/templates/gymApp/login.html:8 gymApp/templates/gymApp/login.html:29
+#: templates/base.html:152
+msgid "Login"
+msgstr "Login"
+
+#: gymApp/templates/gymApp/login.html:26
+msgid "Password"
+msgstr "Password"
+
+#: gymApp/templates/gymApp/login.html:32
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: gymApp/templates/gymApp/login.html:32
+msgid "Register here"
+msgstr "Register here"
+
+#: gymApp/templates/gymApp/login.html:35
+msgid "Didn't receive a verification email?"
+msgstr "Didn't receive a verification email?"
+
+#: gymApp/templates/gymApp/login.html:35
+msgid "Resend it here"
+msgstr "Resend it here"
+
+#: gymApp/templates/gymApp/manage_memberships.html:7 templates/base.html:96
+msgid "Manage Memberships"
+msgstr "Manage Memberships"
+
+#: gymApp/templates/gymApp/manage_memberships.html:12
+msgid "Membership Type"
+msgstr "Membership Type"
+
+#: gymApp/templates/gymApp/manage_memberships.html:13
+#: gymApp/templates/gymApp/select_membership.html:23
+msgid "Start Date"
+msgstr "Start Date"
+
+#: gymApp/templates/gymApp/manage_memberships.html:14
+#: gymApp/templates/gymApp/select_membership.html:24
+msgid "End Date"
+msgstr "End Date"
+
+#: gymApp/templates/gymApp/payment_cancel.html:6
+#: gymApp/templates/gymApp/payment_cancel.html:10
+msgid "Payment Cancelled"
+msgstr "Payment Cancelled"
+
+#: gymApp/templates/gymApp/payment_cancel.html:11
+msgid ""
+"Your payment was cancelled. Please try again or contact support for "
+"assistance."
+msgstr ""
+
+#: gymApp/templates/gymApp/payment_success.html:6
+#: gymApp/templates/gymApp/payment_success.html:10
+msgid "Payment Successful"
+msgstr "Payment Successful"
+
+#: gymApp/templates/gymApp/payment_success.html:11
+msgid "Your payment was successful. Welcome to C2M Muay Thai."
+msgstr "Your payment was successful. Welcome to C2M Muay Thai."
+
+#: gymApp/templates/gymApp/register.html:5
+#: gymApp/templates/gymApp/register.html:9
+#: gymApp/templates/gymApp/register.html:40 templates/base.html:155
+msgid "Register"
+msgstr "Register"
+
+#: gymApp/templates/gymApp/registration/account_lockout.html:11
+msgid "Account Locked"
+msgstr "Account Locked"
+
+#: gymApp/templates/gymApp/registration/account_lockout.html:12
+msgid ""
+"Your account has been locked due to multiple failed login attempts. Please "
+"try again later or contact support for assistance."
+msgstr ""
+
+#: gymApp/templates/gymApp/resend_verification_email.html:7
+msgid "Resend Verification Email"
+msgstr "Resend Verification Email"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:11
+msgid "Enter your email address"
+msgstr "Enter your email address"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:15
+msgid "Enter your username"
+msgstr "Enter your username"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:18
+msgid "Resend Email"
+msgstr "Resend Email"
+
+#: gymApp/templates/gymApp/resend_verification_email.html:21
+#: gymApp/views.py:102 gymApp/views.py:106
+msgid ""
+"If your email address and username are correct, a verification email was "
+"sent."
+msgstr ""
+
+#: gymApp/templates/gymApp/resend_verification_email.html:22
+msgid ""
+"Check your spam or junk folder if you don't receive the email within a few "
+"minutes."
+msgstr ""
+
+#: gymApp/templates/gymApp/select_membership.html:6
+msgid "Select Membership"
+msgstr "Select Membership"
+
+#: gymApp/templates/gymApp/select_membership.html:11
+msgid "Select Your Membership"
+msgstr "Select Your Membership"
+
+#: gymApp/templates/gymApp/select_membership.html:19
+msgid "Your Current Membership"
+msgstr "Your Current Membership"
+
+#: gymApp/templates/gymApp/select_membership.html:20
+msgid "Type"
+msgstr "Type"
+
+#: gymApp/templates/gymApp/select_membership.html:21
+msgid "Sessions Remaining"
+msgstr "Sessions Remaining"
+
+#: gymApp/templates/gymApp/select_membership.html:22
+msgid "Personal Trainings Remaining"
+msgstr "Personal Trainings Remaining"
+
+#: gymApp/templates/gymApp/select_membership.html:27
+msgid "Cancel Membership"
+msgstr "Cancel Membership"
+
+#: gymApp/templates/gymApp/select_membership.html:30
+msgid "View Invoices"
+msgstr "View Invoices"
+
+#: gymApp/templates/gymApp/select_membership.html:36
+msgid "Submit Cancellation"
+msgstr "Submit Cancellation"
+
+#: gymApp/templates/gymApp/select_membership.html:41
+msgid "You do not have a current membership."
+msgstr "You do not have a current membership."
+
+#: gymApp/templates/gymApp/select_membership.html:44
+msgid "Available Memberships"
+msgstr "Available Memberships"
+
+#: gymApp/templates/gymApp/select_membership.html:49
+msgid "Membership Image"
+msgstr "Membership Image"
+
+#: gymApp/templates/gymApp/select_membership.html:53
+msgid "Price for Men"
+msgstr "Price for Men"
+
+#: gymApp/templates/gymApp/select_membership.html:54
+msgid "Price for Women"
+msgstr "Price for Women"
+
+#: gymApp/templates/gymApp/select_membership.html:55
+msgid "Purchase"
+msgstr "Purchase"
+
+#: gymApp/templates/gymApp/select_session_type.html:8
+msgid "Remaining Regular Sessions"
+msgstr "Remaining Regular Sessions"
+
+#: gymApp/templates/gymApp/select_session_type.html:9
+msgid "Remaining Personal Training Sessions"
+msgstr "Remaining Personal Training Sessions"
+
+#: gymApp/templates/gymApp/select_session_type.html:23
+msgid "Select Session"
+msgstr "Select Session"
+
+#: gymApp/templates/gymApp/select_session_type.html:30
+msgid "Select Trainer"
+msgstr "Select Trainer"
+
+#: gymApp/templates/gymApp/select_session_type.html:42
+msgid "No active membership found."
+msgstr "No active membership found."
+
+#: gymApp/templates/gymApp/update_membership.html:6
+msgid "Update Membership"
+msgstr "Update Membership"
+
+#: gymApp/templates/gymApp/update_membership.html:10
+#: gym_info/templates/gym_info/edit_trainer.html:13
+msgid "Update"
+msgstr "Update"
+
+#: gymApp/templates/gymApp/view_user_documents.html:7
+#, python-format
+msgid "Documents Submitted by %(username)s"
+msgstr "Documents Submitted by %(username)s"
+
+#: gymApp/templates/gymApp/view_user_documents.html:11
+msgid "Document"
+msgstr "Document"
+
+#: gymApp/templates/gymApp/view_user_documents.html:12
+msgid "Submission Date"
+msgstr "Submission Date"
+
+#: gymApp/templates/gymApp/view_user_documents.html:35
+msgid "No documents submitted yet."
+msgstr "No documents submitted yet."
+
+#: gymApp/views.py:74
+msgid ""
+"Registration successful. Please check your email to verify your account."
+msgstr ""
+
+#: gymApp/views.py:104
+msgid "Your account is already active. You can log in."
+msgstr "Your account is already active. You can log in."
+
+#: gymApp/views.py:125
+msgid "Email verified successfully. You can now log in."
+msgstr "Email verified successfully. You can now log in."
+
+#: gymApp/views.py:128
+msgid "Invalid verification link"
+msgstr "Invalid verification link"
+
+#: gymApp/views.py:380
+msgid "Price ID is missing for the selected membership type."
+msgstr "Price ID is missing for the selected membership type."
+
+#: gymApp/views.py:384
+msgid ""
+"You have already used your 'Trial' membership and cannot purchase another."
+msgstr ""
+
+#: gymApp/views.py:389
+msgid ""
+"You already have an active subscription. Please wait until your current "
+"subscription ends before purchasing a new one."
+msgstr ""
+
+#: gymApp/views.py:441
+msgid "Invalid membership type."
+msgstr "Invalid membership type."
+
+#: gymApp/views.py:494
+msgid "An unexpected error occurred."
+msgstr "An unexpected error occurred."
+
+#: gymApp/views.py:498
+msgid "Your payment was successful. Welcome to C2M Muay Thai!"
+msgstr "Your payment was successful. Welcome to C2M Muay Thai!"
+
+#: gymApp/views.py:551
+msgid "Payment was cancelled."
+msgstr "Payment was cancelled."
+
+#: gymApp/views.py:582
+#, python-brace-format
+msgid "Failed to cancel Stripe subscription: {error}"
+msgstr "Failed to cancel Stripe subscription: {error}"
+
+#: gymApp/views.py:586
+msgid ""
+"Your membership has been cancelled successfully. You can use your remaining "
+"sessions until the end of the period."
+msgstr ""
+
+#: gymApp/views.py:588
+msgid "Your trial will only expire after you use it."
+msgstr "Your trial will only expire after you use it."
+
+#: gymApp/views.py:591
+msgid "You do not have an active membership to cancel."
+msgstr "You do not have an active membership to cancel."
+
+#: gymApp/views.py:594
+msgid "Please provide a reason for cancellation."
+msgstr "Please provide a reason for cancellation."
+
+#: gymApp/views.py:624
+msgid "Access is restricted to kiosk devices only."
+msgstr "Access is restricted to kiosk devices only."
+
+#: gymApp/views.py:636
+msgid "Your email is not verified. Please check your inbox."
+msgstr "Your email is not verified. Please check your inbox."
+
+#: gymApp/views.py:642
+msgid "You have successfully logged out."
+msgstr "You have successfully logged out."
+
+#: gymApp/views.py:674
+#, python-brace-format
+msgid "Document '{document_name}' verification status updated."
+msgstr "Document '{document_name}' verification status updated."
+
+#: gymApp/views.py:689
+msgid ""
+"Your profile was updated successfully. Please check your new email to verify "
+"the change."
+msgstr ""
+
+#: gymApp/views.py:691
+msgid "Your profile was updated successfully."
+msgstr "Your profile was updated successfully."
+
+#: gymApp/views.py:694
+msgid "Profile update failed. Please check the form for errors."
+msgstr "Profile update failed. Please check the form for errors."
+
+#: gymApp/views.py:705
+msgid "User updated successfully."
+msgstr "User updated successfully."
+
+#: gymApp/views.py:705
+msgid "Failed to update user."
+msgstr "Failed to update user."
+
+#: gymApp/views.py:709
+msgid "User added successfully."
+msgstr "User added successfully."
+
+#: gymApp/views.py:709
+msgid "Failed to add user."
+msgstr "Failed to add user."
+
+#: gymApp/views.py:711
+msgid "Operation successful"
+msgstr "Operation successful"
+
+#: gymApp/views.py:711
+msgid "Operation failed"
+msgstr "Operation failed"
+
+#: gymApp/views.py:730
+msgid "User deleted successfully."
+msgstr "User deleted successfully."
+
+#: gymApp/views.py:732
+#, python-brace-format
+msgid "Error deleting user: {error}"
+msgstr "Error deleting user: {error}"
+
+#: gymApp/views.py:750
+msgid "Membership type added successfully."
+msgstr "Membership type added successfully."
+
+#: gymApp/views.py:753
+msgid "Failed to add membership type."
+msgstr "Failed to add membership type."
+
+#: gymApp/views.py:768
+msgid "Membership updated successfully."
+msgstr "Membership updated successfully."
+
+#: gymApp/views.py:771
+msgid "Failed to update membership."
+msgstr "Failed to update membership."
+
+#: gymApp/views.py:781
+msgid "Membership deleted successfully."
+msgstr "Membership deleted successfully."
+
+#: gymApp/views.py:802 gymApp/views.py:803
+msgid "No active membership. Check-in not allowed."
+msgstr "No active membership. Check-in not allowed."
+
+#: gymApp/views.py:811 gymApp/views.py:868
+msgid "Check-in successful."
+msgstr "Check-in successful."
+
+#: gymApp/views.py:827
+msgid "Profile not found"
+msgstr "Profile not found"
+
+#: gymApp/views.py:830 gymApp/views.py:886
+msgid "An unexpected error occurred"
+msgstr "An unexpected error occurred"
+
+#: gymApp/views.py:837
+msgid "User not provided."
+msgstr "User not provided."
+
+#: gymApp/views.py:843 gymApp/views.py:882
+msgid "No active membership."
+msgstr "No active membership."
+
+#: gymApp/views.py:864
+msgid "Invalid session type or insufficient sessions."
+msgstr "Invalid session type or insufficient sessions."
+
+#: gymApp/views.py:877 gymApp/views.py:878
+msgid "Check-out successful."
+msgstr "Check-out successful."
+
+#: gymApp/views.py:907
+msgid "Method Not Allowed in select_session_type"
+msgstr "Method Not Allowed in select_session_type"
+
+#: gymApp/views.py:908
+msgid "This method is not allowed"
+msgstr "This method is not allowed"
+
+#: gym_info/templates/gym_info/contact_info.html:8
+msgid "Contact Us"
+msgstr "Contact Us"
+
+#: gym_info/templates/gym_info/contact_info.html:25
+msgid "Contact information not available."
+msgstr "Contact information not available."
+
+#: gym_info/templates/gym_info/home.html:6
+msgid "Welcome to C2M Muay Thai & Fitness"
+msgstr "Welcome to C2M Muay Thai & Fitness"
+
+#: gym_info/templates/gym_info/home.html:15
+msgid "Welcome to Our Gym"
+msgstr "Welcome to Our Gym"
+
+#: gym_info/templates/gym_info/home.html:16
+msgid "Learn all about Muay Thai and the variety of services we offer"
+msgstr "Learn all about Muay Thai and the variety of services we offer"
+
+#: gym_info/templates/gym_info/manage_contact_info.html:8
+msgid "Manage Contact Information"
+msgstr "Manage Contact Information"
+
+#: gym_info/templates/gym_info/new_trainer.html:7
+msgid "Add New Trainer"
+msgstr "Add New Trainer"
+
+#: gym_info/templates/gym_info/new_trainer.html:23
+msgid "Create"
+msgstr "Create"
+
+#: gym_info/templates/gym_info/trainers.html:6
+msgid "Our Trainers"
+msgstr "Our Trainers"
+
+#: gym_info/templates/gym_info/trainers.html:15
+msgid "View Profile"
+msgstr "View Profile"
+
+#: gym_info/templates/gym_info/trainers.html:20
+msgid "No trainers available at the moment."
+msgstr "No trainers available at the moment."
+
+#: gym_info/views.py:13
+msgid "Learn the art of eight limbs."
+msgstr "Learn the art of eight limbs."
+
+#: gym_info/views.py:17
+msgid "The classic discipline of striking and defense."
+msgstr "The classic discipline of striking and defense."
+
+#: gym_info/views.py:21
+msgid "Tailored fitness programs for your goals."
+msgstr "Tailored fitness programs for your goals."
+
+#: gym_info/views.py:25
+msgid "Train with the best guest trainers in the world."
+msgstr "Train with the best guest trainers in the world."
+
+#: gym_info/views.py:29
+msgid "Rejuvenate with professional massage treatments."
+msgstr "Rejuvenate with professional massage treatments."
+
+#: gym_info/views.py:33
+msgid "Nutritional plans for optimal performance."
+msgstr "Nutritional plans for optimal performance."
+
+#: gym_info/views.py:70
+msgid "Trainer updated successfully."
+msgstr "Trainer updated successfully."
+
+#: gym_info/views.py:73 gym_info/views.py:99 gym_info/views.py:115
+msgid "Please correct the error below."
+msgstr "Please correct the error below."
+
+#: gym_info/views.py:85
+msgid "Trainer deleted successfully."
+msgstr "Trainer deleted successfully."
+
+#: gym_info/views.py:96
+msgid "New trainer added successfully."
+msgstr "New trainer added successfully."
+
+#: gym_info/views.py:112
+msgid "Contact information updated successfully."
+msgstr "Contact information updated successfully."
+
+#: products/templates/products/cart.html:7
+msgid "Your Cart"
+msgstr "Your Cart"
+
+#: products/templates/products/cart.html:13
+msgid "Product"
+msgstr "Product"
+
+#: products/templates/products/cart.html:14
+msgid "Quantity"
+msgstr "Quantity"
+
+#: products/templates/products/cart.html:15
+msgid "Price"
+msgstr "Price"
+
+#: products/templates/products/cart.html:34
+msgid "Proceed to Checkout"
+msgstr "Proceed to Checkout"
+
+#: products/templates/products/cart.html:37
+msgid "Your cart is empty."
+msgstr "Your cart is empty."
+
+#: products/templates/products/product_list.html:6
+#: products/templates/products/product_list.html:11
+msgid "Our Products"
+msgstr "Our Products"
+
+#: products/templates/products/product_list.html:23
+msgid "Default Product Image"
+msgstr "Default Product Image"
+
+#: products/templates/products/product_list.html:29
+msgid "Add to Cart"
+msgstr "Add to Cart"
+
+#: products/templates/products/product_list.html:37
+msgid "No products available."
+msgstr "No products available."
+
+#: products/views.py:30
+msgid "A new cart has been created for you."
+msgstr "A new cart has been created for you."
+
+#: products/views.py:39
+msgid "Item quantity reduced by one."
+msgstr "Item quantity reduced by one."
+
+#: products/views.py:42
+msgid "Item removed from cart."
+msgstr "Item removed from cart."
+
+#: products/views.py:66
+msgid "You are being redirected to the payment gateway."
+msgstr "You are being redirected to the payment gateway."
+
+#: templates/base.html:32
+msgid "Home"
+msgstr "Home"
+
+#: templates/base.html:35
+msgid "Products"
+msgstr "Products"
+
+#: templates/base.html:39
+msgid "Cart"
+msgstr "Cart"
+
+#: templates/base.html:44
+msgid "Classes"
+msgstr "Classes"
+
+#: templates/base.html:47
+msgid "Schedule"
+msgstr "Schedule"
+
+#: templates/base.html:49
+msgid "My Schedule"
+msgstr "My Schedule"
+
+#: templates/base.html:55
+msgid "Profile"
+msgstr "Profile"
+
+#: templates/base.html:60
+msgid "Documents"
+msgstr "Documents"
+
+#: templates/base.html:64
+msgid "Trainers"
+msgstr "Trainers"
+
+#: templates/base.html:68
+msgid "Private Classes"
+msgstr "Private Classes"
+
+#: templates/base.html:71
+msgid "Request Private Class"
+msgstr "Request Private Class"
+
+#: templates/base.html:77
+msgid "More"
+msgstr "More"
+
+#: templates/base.html:80
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/base.html:81
+msgid "Membership"
+msgstr "Membership"
+
+#: templates/base.html:91 templates/base.html:112 templates/base.html:128
+#: templates/base.html:140
+msgid "Admin"
+msgstr "Admin"
+
+#: templates/base.html:94
+msgid "Admin Dashboard"
+msgstr "Admin Dashboard"
+
+#: templates/base.html:97
+msgid "Manage Classes"
+msgstr "Manage Classes"
+
+#: templates/base.html:98
+msgid "Manage Documents"
+msgstr "Manage Documents"
+
+#: templates/base.html:99
+msgid "Manage Trainers"
+msgstr "Manage Trainers"
+
+#: templates/base.html:100 templates/base.html:115 templates/base.html:133
+msgid "View Memberships"
+msgstr "View Memberships"
+
+#: templates/base.html:101 templates/base.html:116
+msgid "View Users"
+msgstr "View Users"
+
+#: templates/base.html:102 templates/base.html:117 templates/base.html:132
+msgid "View Classes"
+msgstr "View Classes"
+
+#: templates/base.html:103 templates/base.html:119
+msgid "Private Class Requests List"
+msgstr "Private Class Requests List"
+
+#: templates/base.html:105 templates/base.html:121
+msgid "View Trainers"
+msgstr "View Trainers"
+
+#: templates/base.html:118 templates/base.html:131
+msgid "Manage Sessions"
+msgstr "Manage Sessions"
+
+#: templates/base.html:143
+msgid "Scan"
+msgstr "Scan"
+
+#: templates/base.html:148
+msgid "Logout"
+msgstr "Logout"
+
+#: templates/base.html:173
+msgid "SELECT MEMBERSHIP"
+msgstr "SELECT MEMBERSHIP"
+
+#: templates/base.html:177
+msgid "SIGN UP AND TRY A CLASS"
+msgstr "SIGN UP AND TRY A CLASS"

@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+Check In/Out
+{% endblock %}
+
+{% block additional_styles %}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>{% trans "Scan QR Code" %}</h1>
+            <div class="control-buttons">
+                <button id="checkInButton" class="btn btn-primary">{% trans "Check In" %}</button>
+                <button id="checkOutButton" class="btn btn-primary">{% trans "Check Out" %}</button>
+            </div>
+            <div class="scanner-window mx-auto">
+                <video id="qr-video"></video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sessionModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>{% trans "Select Session Type" %}</h2>
+        <p>{% trans "Remaining Regular Sessions:" %} <span id="remaining-regular-sessions"></span></p>
+        <p>{% trans "Remaining Personal Training Sessions:" %} <span id="remaining-personal-training-sessions"></span></p>
+        <form id="sessionSelectionForm" method="post" onsubmit="return false;">
+            {% csrf_token %}
+            <label>
+                <input type="radio" name="session_type" value="regular" required> {% trans "Use Regular Session" %}
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="session_type" value="personal_training" required> {% trans "Use Personal Training Session" %}
+            </label>
+            <div id="personal_training_fields" style="display: none;">
+                <label for="session_id">{% trans "Select Session:" %}</label>
+                <select name="session_id" id="session_id"></select>
+                <br>
+                <label for="trainer_id">{% trans "Select Trainer:" %}</label>
+                <select name="trainer_id" id="trainer_id"></select>
+            </div>
+            <button type="submit" class="btn btn-success mt-2">{% trans "Select" %}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block additional_scripts %}
+<script src="https://unpkg.com/@zxing/library@latest"></script>
+<script>
+
+    // Function to extract the language prefix from the URL
+    function getLanguagePrefix() {
+        const path = window.location.pathname;
+        const segments = path.split('/');
+        // Assuming the language code is always the first segment after the first slash
+        return segments[1]; // This will be 'en', 'jp', etc.
+    }
+
+    const codeReader = new ZXing.BrowserQRCodeReader();
+    let action = null;
+    const videoElement = document.getElementById('qr-video');
+    const sessionModal = document.getElementById('sessionModal');
+    const closeModal = document.querySelector('.close');
+    const languagePrefix = getLanguagePrefix(); // Get the current language prefix
+
+    let currentUsername = null; // Variable to hold the username after scanning QR code
+
+    function startScanning(actionType) {
+        action = actionType;
+        console.log(action + ' mode');
+
+        codeReader.decodeFromVideoDevice(null, 'qr-video', (result, err) => {
+            if (result && action) {
+                console.log(result);
+                fetch(`/${languagePrefix}/gym/${action}/${result.text}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.status === 'success' && action === 'check_in') {
+                        // Capture the username from the response
+                        currentUsername = data.user;
+
+                        // Update the UI with membership and session details
+                        document.getElementById('remaining-regular-sessions').innerText = data.membership.remaining_sessions;
+                        document.getElementById('remaining-personal-training-sessions').innerText = data.membership.remaining_personal_trainings;
+
+                        const sessionSelect = document.getElementById('session_id');
+                        sessionSelect.innerHTML = '';
+                        data.sessions.forEach(session => {
+                            sessionSelect.innerHTML += `<option value="${session.id}">${session.name}</option>`;
+                        });
+
+                        const trainerSelect = document.getElementById('trainer_id');
+                        trainerSelect.innerHTML = '';
+                        data.trainers.forEach(trainer => {
+                            trainerSelect.innerHTML += `<option value="${trainer.id}">${trainer.name}</option>`;
+                        });
+
+                        // Show the modal
+                        sessionModal.style.display = 'block';
+                    } else {
+                        window.location.href = '/gym/scan/';
+                    }
+                }).catch(err => console.error('Fetch error:', err));
+            }
+            if (err && !(err instanceof ZXing.NotFoundException)) {
+                console.error(err);
+            }
+        });
+    }
+
+
+    document.getElementById('checkInButton').addEventListener('click', () => startScanning('check_in'));
+    document.getElementById('checkOutButton').addEventListener('click', () => startScanning('check_out'));
+
+    closeModal.onclick = function() {
+        sessionModal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        if (event.target == sessionModal) {
+            sessionModal.style.display = 'none';
+        }
+    }
+
+    document.getElementById('sessionSelectionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const sessionType = formData.get('session_type');
+    const sessionId = formData.get('session_id');
+    const trainerId = formData.get('trainer_id');
+
+    if (!currentUsername) {
+        console.error('No username available for submitting session details.');
+        alert('Scan a user QR code first.');
+        return;
+    }
+
+    fetch(`/${languagePrefix}/gym/select_session/${currentUsername}/`, {
+        method: 'POST',
+        body: JSON.stringify({
+            session_type: sessionType,
+            session_id: sessionId,
+            trainer_id: trainerId
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        }
+    }).then(response => response.json())
+    .then(data => {
+        if(data.status === 'success') {
+            window.location.href = '/gym/scan/';
+        } else {
+            console.error('Error:', data.message);
+            alert(data.message);
+        }
+    }).catch(err => console.error('Fetch error:', err));
+    });
+
+    document.querySelectorAll('input[name="session_type"]').forEach(input => {
+    input.addEventListener('change', function() {
+        const personalFields = document.getElementById('personal_training_fields');
+        if (this.value === 'personal_training') {
+            personalFields.style.display = '';
+        } else {
+            personalFields.style.display = 'none';
+        }
+    });
+    });
+</script>
+{% endblock %}

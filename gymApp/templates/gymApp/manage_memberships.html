@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+
+{% block content %}
+<h2>{% trans "Manage Memberships" %}</h2>
+<table>
+  <thead>
+    <tr>
+      <th>{% trans "Username" %}</th>
+      <th>{% trans "Membership Type" %}</th>
+      <th>{% trans "Start Date" %}</th>
+      <th>{% trans "End Date" %}</th>
+      <th>{% trans "Actions" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for membership in memberships %}
+    <tr {% if membership.end_date < now.date or membership.start_date > now.date %}class="highlight"{% endif %}>
+      <td>{{ membership.user.username }}</td>
+      <td>{{ membership.membership_type.name }}</td>
+      <td>{{ membership.start_date|date:"Y-m-d" }}</td>
+      <td>{{ membership.end_date|date:"Y-m-d" }}</td>
+      <td>
+        <a href="{% url 'update_membership' membership.pk %}">{% trans "Edit" %}</a>
+        <a href="{% url 'delete_membership' membership.pk %}">{% trans "Delete" %}</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

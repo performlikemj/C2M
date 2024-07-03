@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{% trans "Our Trainers" %}</h2>
+    <div class="row">
+        {% for trainer in trainers %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ trainer.photo.url }}" class="card-img-top" alt="{{ trainer.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ trainer.name }}</h5>
+                    <p class="card-text">{{ trainer.bio }}</p>
+                    <a href="{% url 'trainer_detail' trainer.id %}" class="btn btn-primary">{% trans "View Profile" %}</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>{% trans "No trainers available at the moment." %}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+<!--check out page-->
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% trans "Check Out" %}</title>
+</head>
+<body>
+    <h1>{% trans "Scan QR Code to Check Out" %}</h1>
+    <video id="qr-video"></video>
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <script>
+        const codeReader = new ZXing.BrowserQRCodeReader()
+        console.log('ZXing code reader initialized for check-out')
+        codeReader.decodeFromVideoDevice(null, 'qr-video', (result, err) => {
+            if (result) {
+                console.log(result)
+                fetch(`/check_out/${result.text}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({ qr_code: result.text })
+                }).then(response => window.location.href = '/home/')
+            }
+            if (err && !(err instanceof ZXing.NotFoundException)) {
+                console.error(err)
+            }
+        })
+    </script>
+</body>
+</html>

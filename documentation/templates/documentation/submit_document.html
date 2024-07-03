@@ -1,0 +1,16 @@
+<!-- documentation/templates/documentation/submit_document.html -->
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<main class="container">
+    <h2 class="page-header">{% trans "Submit Document" %}: {{ document.name }}</h2>
+    <form method="post" enctype="multipart/form-data" class="service-card">
+        {% csrf_token %}
+        <div class="service-card-body">
+            {{ form.as_p }}
+            <button type="submit" class="btn">{% trans "Upload" %}</button>
+        </div>
+    </form>
+</main>
+{% endblock %}

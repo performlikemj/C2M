@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% load class_schedule_tags %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4">{{ class.title }}</h1>
+            <p class="lead">{{ class.description }}</p>
+
+            <!-- Button to Add a New Session -->
+            {% if request.user.is_staff %}
+                <a href="{% url 'add_session' class.id %}" class="btn btn-primary mb-4">{% trans "Add New Session" %}</a>
+            {% endif %}
+
+            <hr class="my-4">
+
+            <div class="mb-5">
+                <h3 class="mb-3">{% trans "Upcoming Sessions" %}</h3>
+                {% if upcoming_sessions %}
+                    <div class="list-group">
+                        {% for session in upcoming_sessions %}
+                            {% has_booked_session session as is_booked %}
+                            <div class="list-group-item list-group-item-action flex-column align-items-start py-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ session.start_time|date:"D, d M Y H:i" }} - {{ session.end_time|date:"H:i" }}</h5>
+                                    {% if request.user.is_authenticated %}
+                                        <form method="post" action="{% url 'book_class' session.id %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-success btn-sm">{% trans "Book Class" %}</button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                                <p>{% trans "Trainer" %}: 
+                                    {% if session.trainer %}
+                                        {{ session.trainer.name }}
+                                    {% else %}
+                                        {% trans "TBA" %}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="text-muted">{% trans "No upcoming sessions." %}</p>
+                {% endif %}
+            </div>
+
+            <div class="mb-5">
+                <h3 class="mb-3">{% trans "Past Sessions" %}</h3>
+                {% if past_sessions %}
+                    <ul class="list-group">
+                        {% for session in past_sessions %}
+                            <li class="list-group-item">
+                                {{ session.start_time|date:"D, d M Y H:i" }} - {{ session.end_time|date:"H:i" }}
+                                <p class="mb-1">{% trans "Session has ended." %}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted">{% trans "No past sessions." %}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+*.env
+*.log
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.rdb
+.c2m/*
+__pycache__/
+pyvenv.cfg
+

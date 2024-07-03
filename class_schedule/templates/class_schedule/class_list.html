@@ -1,0 +1,49 @@
+<!-- This template is used to display the class schedule for a given week. -->
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{% trans "Class Schedule" %}</h2>
+    <p>{{ start_week|date:"M d, Y" }} - {{ end_week|date:"M d, Y" }}</p>
+
+    <!-- Button to Add a New Class -->
+    {% if request.user.is_staff %}
+        <div class="mb-3">
+            <a href="{% url 'add_class' %}" class="btn btn-primary">{% trans "Add New Class" %}</a>
+        </div>
+    {% endif %}
+
+    <div class="text-center mb-3">
+        <div class="btn-group" role="group" aria-label="{% trans 'Week navigation' %}">
+            <a href="{% url 'class_list' %}?week={{ previous_week }}" class="btn btn-outline-primary">{% trans "Previous Week" %}</a>
+            <a href="{% url 'class_list' %}" class="btn btn-outline-primary">{% trans "Current Week" %}</a>
+            <a href="{% url 'class_list' %}?week={{ next_week }}" class="btn btn-outline-primary">{% trans "Next Week" %}</a>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-7 g-4">
+        {% for date, sessions in sessions_by_day.items %}
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title">{{ date|date:"D, m/d" }}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        {% for session in sessions %}
+                        <a href="{% url 'session_detail' session.id %}" class="list-group-item list-group-item-action py-3">
+                            <h6 class="mb-0">{{ session.class_meta.title }}</h6>
+                            <small>{{ session.start_time|time:"P" }} - {{ session.end_time|time:"P" }}</small>
+                        </a>
+                        {% empty %}
+                        <p class="text-muted">{% trans "No sessions" %}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

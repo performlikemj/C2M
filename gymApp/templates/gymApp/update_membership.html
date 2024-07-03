@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Update Membership" %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% trans "Update" %}</button>
+</form>
+{% endblock %}

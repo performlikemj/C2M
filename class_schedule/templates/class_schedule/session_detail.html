@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load class_schedule_tags %}  <!-- Ensure to load your custom template tags if needed for booking logic -->
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>{% trans "Session Details" %}: {{ session.class_meta.title }}</h2>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" style="display: inline;">
+                <a href="{% url 'class_detail' session.class_meta.id %}" style="color: blue; text-decoration: underline;">
+                    {{ session.class_meta.title }}
+                </a>
+            </h5>
+            <p class="card-text">{{ session.class_meta.description }}</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>{% trans "Date" %}:</strong> {{ session.start_time|date:"D, M d, Y" }}
+                </li>
+                <li class="list-group-item">
+                    <strong>{% trans "Time" %}:</strong> {{ session.start_time|time:"P" }} - {{ session.end_time|time:"P" }}
+                </li>
+                <li class="list-group-item">
+                    <strong>{% trans "Trainer" %}:</strong> {{ session.trainer.name|default:"{% trans 'TBA' %}" }}
+                </li>
+            </ul>
+            {% if request.user.is_authenticated %}
+                {% has_booked_session session as is_booked %}
+                <div class="card-footer">
+                    {% if is_booked %}
+                        <form method="post" action="{% url 'unbook_class' session.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-warning">{% trans "Cancel Booking" %}</button>
+                        </form>
+                    {% else %}
+                        <form method="post" action="{% url 'book_class' session.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">{% trans "Book Session" %}</button>
+                        </form>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="card-footer">
+                    <p>{% trans "Please" %} <a href="{% url 'login' %}">{% trans "log in" %}</a> {% trans "to book the session." %}</p>
+                </div>
+            {% endif %}
+            {% if request.user.is_staff %}
+                <div class="card-footer">
+                    <form method="post" action="{% url 'remove_session' session.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">{% trans "Remove This Session" %}</button>
+                    </form>
+                    <form method="post" action="{% url 'remove_all_sessions' session.id %}" style="margin-top: 10px;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">{% trans "Remove All Recurring Sessions" %}</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if request.user.is_staff %}
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4>{% trans "Manage Members" %}</h4>
+        </div>
+        <div class="card-body">
+            <h5>{% trans "Current Members" %}</h5>
+            <ul class="list-group list-group-flush mb-3">
+                {% for booking in bookings %}
+                    <li class="list-group-item">
+                        {{ booking.user.username }}
+                        <form action="{% url 'remove_member_from_session' booking.id %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-danger">{% trans "Remove" %}</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h5>{% trans "Add Member to Session" %}</h5>
+            <form action="{% url 'add_member_to_session' session.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="user_id">{% trans "Select Member" %}</label>
+                    <select name="user_id" id="user_id" class="form-control">
+                        {% for user in active_members %}
+                            <option value="{{ user.id }}">{{ user.username }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">{% trans "Add Member" %}</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

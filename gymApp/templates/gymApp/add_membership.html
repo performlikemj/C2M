@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+    <h1>{% trans "Add New Membership Type" %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">{% trans "Add Membership Type" %}</button>
+    </form>
+</div>
+{% endblock %}

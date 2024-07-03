@@ -1,0 +1,33 @@
+<!-- gymApp/templates/gymApp/check_in.html -->
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% trans "Check In" %}</title>
+    </head>
+    <body>
+        <h1>{% trans "Scan QR Code to Check In" %}</h1>
+    <video id="qr-video"></video>
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <script>
+        const codeReader = new ZXing.BrowserQRCodeReader()
+        console.log('ZXing code reader initialized')
+        codeReader.decodeFromVideoDevice(null, 'qr-video', (result, err) => {
+            if (result) {
+                console.log(result)
+                fetch(`/check_in/${result.text}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({ qr_code: result.text })
+                }).then(response => window.location.href = '/check_out/')
+            }
+            if (err && !(err instanceof ZXing.NotFoundException)) {
+                console.error(err)
+            }
+        })
+    </script>
+</body>
+</html>

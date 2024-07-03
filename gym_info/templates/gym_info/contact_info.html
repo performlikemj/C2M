@@ -1,0 +1,28 @@
+<!-- gym_info/templates/gym_info/contact_info.html -->
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="container text-center my-4">
+    <h2>{% trans "Contact Us" %}</h2>
+    {% if contact_info %}
+        <div class="social-links d-flex justify-content-center mt-3">
+            {% if contact_info.instagram_url %}
+                <a href="{{ contact_info.instagram_url }}" class="fab fa-instagram mx-2" style="font-size: 36px; color: #C13584;"></a>
+            {% endif %}
+            {% if contact_info.google_maps_url %}
+                <a href="{{ contact_info.google_maps_url }}" class="fas fa-map-marker-alt mx-2" style="font-size: 36px; color: #4285F4;"></a>
+            {% endif %}
+            {% if contact_info.facebook_url %}
+                <a href="{{ contact_info.facebook_url }}" class="fab fa-facebook-f mx-2" style="font-size: 36px; color: #3B5998;"></a>
+            {% endif %}
+            {% if contact_info.tiktok_url %}
+                <a href="{{ contact_info.tiktok_url }}" class="fab fa-tiktok mx-2" style="font-size: 36px; color: #000000;"></a>
+            {% endif %}
+        </div>
+    {% else %}
+        <p>{% trans "Contact information not available." %}</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <img src="{{ trainer.photo.url }}" class="card-img-top" alt="{{ trainer.name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ trainer.name }}</h5>
+            <p class="card-text">{{ trainer.bio }}</p>
+            <!-- Add edit and delete buttons if the current user is an admin -->
+            {% if request.user.is_staff %}
+            <a href="{% url 'edit_trainer' trainer.id %}" class="btn btn-secondary">{% trans "Edit" %}</a>
+            <a href="{% url 'delete_trainer' trainer.id %}" class="btn btn-danger">{% trans "Delete" %}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

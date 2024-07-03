@@ -1,0 +1,12 @@
+<!-- documentation/templates/documentation/document_status.html -->
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<h2>{% trans "Your Submissions" %}</h2>
+<ul>
+    {% for submission in submissions %}
+    <li>{{ submission.document.name }} - {% trans "Submitted on" %} {{ submission.submitted }} - {% trans "Status" %}: {{ submission.get_verified_display }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

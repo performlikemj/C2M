@@ -1,0 +1,82 @@
+<!-- gymApp/templates/gymApp/select_session_type.html -->
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <h2>{% trans "Select Session Type" %}</h2>
+    {% if membership %}
+        <p>{% trans "Remaining Regular Sessions" %}: {{ membership.remaining_sessions }}</p>
+        <p>{% trans "Remaining Personal Training Sessions" %}: {{ membership.remaining_personal_trainings }}</p>
+
+        <form id="sessionSelectionForm" method="post" action="{% url 'select_session_type' scan_user %}">
+            {% csrf_token %}
+            <label>
+                <input type="radio" name="session_type" value="regular" required> {% trans "Use Regular Session" %}
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="session_type" value="personal_training" required onchange="togglePersonalTrainingFields()"> {% trans "Use Personal Training Session" %}
+            </label>
+            <br>
+
+            <div id="personal_training_fields" style="display: none;">
+                <label for="session_id">{% trans "Select Session" %}:</label>
+                <select name="session_id" id="session_id">
+                    {% for session in sessions %}
+                        <option value="{{ session.id }}">{{ session.name }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <label for="trainer_id">{% trans "Select Trainer" %}:</label>
+                <select name="trainer_id" id="trainer_id">
+                    {% for trainer in trainers %}
+                        <option value="{{ trainer.id }}">{{ trainer.name }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+            </div>
+
+            <button type="submit">{% trans "Select" %}</button>
+        </form>
+    {% else %}
+        <p>{% trans "No active membership found." %}</p>
+    {% endif %}
+{% endblock %}
+
+
+<!-- Define the URL in a data-* attribute -->
+<div id="redirect-url" data-url="{% url 'personal_schedule' %}"></div>
+
+<script>
+document.getElementById("sessionSelectionForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": form.querySelector("[name=csrfmiddlewaretoken]").value
+        },
+        body: formData
+    });
+
+    if (response.ok) {
+        // Get the URL from the data-* attribute
+        const redirectUrl = document.getElementById("redirect-url").dataset.url;
+        window.location.href = redirectUrl;  // Redirect to personal schedule or another page
+    } else {
+        alert("Failed to select session.");
+    }
+});
+
+function togglePersonalTrainingFields() {
+    const personalTrainingFields = document.getElementById("personal_training_fields");
+    const sessionType = document.querySelector("input[name='session_type']:checked").value;
+    personalTrainingFields.style.display = sessionType === "personal_training" ? "block" : "none";
+}
+
+document.querySelectorAll("input[name='session_type']").forEach(input => {
+    input.addEventListener("change", togglePersonalTrainingFields);
+});
+</script>
