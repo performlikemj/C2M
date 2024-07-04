@@ -271,22 +271,42 @@ LOGGING = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Celery settings
-CELERY_BROKER_URL = 'redis://localhost:6379/2'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/2'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Tokyo'
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-CELERY_BEAT_SCHEDULE = {
-    'check_active_subscriptions': {
-        'task': 'gymApp.tasks.check_active_subscriptions',
-        'schedule': crontab(hour=9, minute=0),  # Schedule to run every day at 9:00 AM
-        'options': {
-            'timezone': 'Asia/Tokyo',
+if not DEBUG:
+
+    CELERY_BROKER_URL = config('CELERY_BROKER_URL')
+    CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND') 
+    CELERY_ACCEPT_CONTENT = ['json']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_TIMEZONE = 'Asia/Tokyo'
+    CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+    CELERY_BEAT_SCHEDULE = {
+        'check_active_subscriptions': {
+            'task': 'gymApp.tasks.check_active_subscriptions',
+            'schedule': crontab(hour=9, minute=0),  # Schedule to run every day at 9:00 AM
+            'options': {
+                'timezone': 'Asia/Tokyo',
+            },
         },
-    },
-}
+    }
+else:
+    # Celery settings
+    CELERY_BROKER_URL = 'redis://localhost:6379/2'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/2'
+    CELERY_ACCEPT_CONTENT = ['json']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_TIMEZONE = 'Asia/Tokyo'
+    CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+    CELERY_BEAT_SCHEDULE = {
+        'check_active_subscriptions': {
+            'task': 'gymApp.tasks.check_active_subscriptions',
+            'schedule': crontab(hour=9, minute=0),  # Schedule to run every day at 9:00 AM
+            'options': {
+                'timezone': 'Asia/Tokyo',
+            },
+        },
+    }
 
 # Site URL for generating verification links
 SITE_URL = config('SITE_URL')
