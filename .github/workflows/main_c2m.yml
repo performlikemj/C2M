@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - c2m-web
+name: Build and deploy Python app to Azure Web App - c2m
 
 on:
   push:
@@ -26,17 +26,14 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
-
+        
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
-
-      - name: List contents of ZIP file
-        run: unzip -l release.zip
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
@@ -61,22 +58,20 @@ jobs:
         with:
           name: python-app
 
-      - name: List contents of ZIP file
-        run: unzip -l release.zip
-
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9D89A2AD03894D7CB641260453F6B3C3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_7F1B8EF96E6948AE810A93561D0424D4 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BEEEE20DE6E54C4DB144F4219D4BB10E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E0A911C45A884E2A807D4FFB463ED428 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_20C1BF7CAE54462AB9D3234175D7DBFD }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_885085D8102D427EA37616AF72BC40ED }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'c2m-web'
-
+          app-name: 'c2m'
+          
