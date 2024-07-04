@@ -199,13 +199,6 @@ STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
 # Login URL
 LOGIN_URL = 'login'  # Redirect to login page
 
-# Set the log directory
-LOG_DIR = os.path.join(os.getenv('HOME', BASE_DIR), 'logs')
-
-# Ensure the log directory exists
-if not os.path.exists(LOG_DIR):
-    os.makedirs(LOG_DIR)
-
 # Logging settings
 LOGGING = {
     'version': 1,
@@ -229,7 +222,7 @@ LOGGING = {
         'file': {
             'level': 'WARNING',  # Only log warnings and above to file
             'class': 'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'debug.log'),
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
             'formatter': 'verbose',
         },
     },
