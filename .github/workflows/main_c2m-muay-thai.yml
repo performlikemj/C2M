@@ -32,11 +32,6 @@ jobs:
           source antenv/bin/activate
           pip install -r requirements.txt
 
-      - name: Collect static files
-        run: |
-          source antenv/bin/activate
-          python manage.py collectstatic --noinput
-
       - name: Install Stripe CLI
         run: |
           sudo dpkg -i stripe_1.21.0_linux_amd64.deb
