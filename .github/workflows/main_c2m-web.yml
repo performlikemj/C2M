@@ -39,7 +39,11 @@ jobs:
 
       - name: Install Stripe CLI
         run: |
-          curl -sSL https://stripe.com/install.sh | bash
+          # Download the latest linux tar.gz file from GitHub
+          STRIPE_CLI_VERSION=$(curl --silent "https://api.github.com/repos/stripe/stripe-cli/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+          curl -L -o stripe.tar.gz "https://github.com/stripe/stripe-cli/releases/download/${STRIPE_CLI_VERSION}/stripe_${STRIPE_CLI_VERSION}_linux_x86_64.tar.gz"
+          tar -xvf stripe.tar.gz
+          sudo mv stripe /usr/local/bin/
 
       - name: Zip artifact for deployment
         run: |
