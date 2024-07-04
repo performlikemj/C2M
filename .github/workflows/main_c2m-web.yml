@@ -39,11 +39,13 @@ jobs:
 
       - name: Install Stripe CLI
         run: |
-          # Download the latest linux tar.gz file from GitHub
-          STRIPE_CLI_VERSION=$(curl --silent "https://api.github.com/repos/stripe/stripe-cli/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
-          curl -L -o stripe.tar.gz "https://github.com/stripe/stripe-cli/releases/download/${STRIPE_CLI_VERSION}/stripe_${STRIPE_CLI_VERSION}_linux_x86_64.tar.gz"
-          tar -xvf stripe.tar.gz
-          sudo mv stripe /usr/local/bin/
+          wget https://github.com/stripe/stripe-cli/releases/download/v1.21.0/stripe_1.21.0_linux_amd64.deb
+          sudo dpkg -i stripe_1.21.0_linux_amd64.deb
+          sudo apt-get install -f
+
+      - name: Validate Stripe CLI Installation
+        run: |
+          stripe --version
 
       - name: Zip artifact for deployment
         run: |
