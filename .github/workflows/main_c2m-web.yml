@@ -39,7 +39,6 @@ jobs:
 
       - name: Install Stripe CLI
         run: |
-          wget https://github.com/stripe/stripe-cli/releases/download/v1.21.0/stripe_1.21.0_linux_amd64.deb
           sudo dpkg -i stripe_1.21.0_linux_amd64.deb
           sudo apt-get install -f
 
