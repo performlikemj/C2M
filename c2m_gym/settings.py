@@ -348,9 +348,17 @@ if not DEBUG:
         "'self'", 
         'fonts.googleapis.com',
         'https://c2mmuaythai.com/static/css',
-        'https://www.c2mmuaythai.com/static/css'
+        'https://www.c2mmuaythai.com/static/css',
+        'https://cdn.jsdelivr.net',
+        'https://use.fontawesome.com',
+        'https://cdnjs.cloudflare.com'
     )
-    CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
+    CSP_FONT_SRC = (
+        "'self'", 
+        'fonts.gstatic.com',
+        'https://use.fontawesome.com',
+        'https://cdnjs.cloudflare.com'
+    )
     CSP_SCRIPT_SRC = (
         "'self'", 
         'ajax.googleapis.com', 
