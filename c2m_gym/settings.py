@@ -342,9 +342,22 @@ if not DEBUG:
     AXES_LOCKOUT_TEMPLATE = 'registration/account_lockout.html'
     AXES_LOCKOUT_URL = '/account_locked/'
 
-# CSP settings (using django-csp)
-CSP_DEFAULT_SRC = ("'self'",)
-CSP_STYLE_SRC = ("'self'", 'fonts.googleapis.com')
-CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
-CSP_SCRIPT_SRC = ("'self'", 'ajax.googleapis.com')
+    # CSP settings (using django-csp)
+    CSP_DEFAULT_SRC = ("'self'",)
+    CSP_STYLE_SRC = (
+        "'self'", 
+        'fonts.googleapis.com',
+        'https://c2mmuaythai.com/static/css',
+        'https://www.c2mmuaythai.com/static/css'
+    )
+    CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
+    CSP_SCRIPT_SRC = (
+        "'self'", 
+        'ajax.googleapis.com', 
+        'https://code.jquery.com',
+        'https://cdn.jsdelivr.net',
+        'https://c2mmuaythai.com/static/js',
+        'https://www.c2mmuaythai.com/static/js'
+    )
+
 
