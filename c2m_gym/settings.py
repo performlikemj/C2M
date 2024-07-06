@@ -21,6 +21,10 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Ensure log directory exists
+LOG_DIR = os.path.join(BASE_DIR, 'logs')
+os.makedirs(LOG_DIR, exist_ok=True)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -221,42 +225,31 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',  # Capture detailed debug info
+            'level': 'INFO',  # Change to INFO to reduce verbosity
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
         },
         'file_debug': {
-            'level': 'DEBUG',  # Capture detailed debug info
+            'level': 'DEBUG',  # Change to DEBUG for more verbosity
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/debug.log'),
-            'formatter': 'verbose',
-        },
-        'file_warning': {
-            'level': 'WARNING',  # Capture warnings and errors
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/warning.log'),
-            'formatter': 'verbose',
-        },
-        'file_error': {
-            'level': 'ERROR',  # Capture errors only
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/error.log'),
+            'filename': os.path.join(LOG_DIR, 'debug.log'),
             'formatter': 'verbose',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file_debug', 'file_warning', 'file_error'],
-            'level': 'DEBUG',  # Change to INFO to reduce verbosity if needed
+            'handlers': ['console', 'file_debug'],
+            'level': 'DEBUG',  # Change to DEBUG to see more messages
             'propagate': True,
         },
         'gymApp': {
-            'handlers': ['console', 'file_debug', 'file_warning', 'file_error'],
+            'handlers': ['console', 'file_debug'],
             'level': 'DEBUG',  # Adjust this level as needed
             'propagate': True,
         },
     },
 }
+
 
 
 # # Email backend settings
