@@ -221,29 +221,43 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',  # Change to INFO to reduce verbosity
+            'level': 'DEBUG',  # Capture detailed debug info
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
         },
-        'file': {
-            'level': 'WARNING',  # Only log warnings and above to file
+        'file_debug': {
+            'level': 'DEBUG',  # Capture detailed debug info
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'debug.log'),
+            'filename': os.path.join(BASE_DIR, 'logs/debug.log'),
+            'formatter': 'verbose',
+        },
+        'file_warning': {
+            'level': 'WARNING',  # Capture warnings and errors
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/warning.log'),
+            'formatter': 'verbose',
+        },
+        'file_error': {
+            'level': 'ERROR',  # Capture errors only
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/error.log'),
             'formatter': 'verbose',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',  # Change to INFO to see only important messages
+            'handlers': ['console', 'file_debug', 'file_warning', 'file_error'],
+            'level': 'DEBUG',  # Change to INFO to reduce verbosity if needed
+            'propagate': True,
         },
         'gymApp': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',  # Adjust this level as needed
+            'handlers': ['console', 'file_debug', 'file_warning', 'file_error'],
+            'level': 'DEBUG',  # Adjust this level as needed
             'propagate': True,
         },
     },
 }
+
 
 # # Email backend settings
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
