@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'c2m_gym',  
     'gymApp', 
     'gym_info',
     'class_schedule',
