@@ -367,12 +367,19 @@ if not DEBUG:
     AXES_LOCKOUT_URL = '/account_locked/'
 
     # CSP settings (using django-csp)
-    CSP_DEFAULT_SRC = ("'self'",)
+    CSP_DEFAULT_SRC = (
+        "'self'",
+        'c2m-muay-thai.azurewebsites.net',
+        '40.80.58.226',
+        'https://c2m-muay-thai.azurewebsites.net',
+        'https://c2mmuaythai.com',
+        'https://www.c2mmuaythai.com',
+    )
     CSP_STYLE_SRC = (
         "'self'", 
         'fonts.googleapis.com',
-        'https://c2mmuaythai.com/static/css',
-        'https://www.c2mmuaythai.com/static/css',
+        'https://c2m-muay-thai.azurewebsites.net/static/css',
+        'https://40.80.58.226/static/css',
         'https://cdn.jsdelivr.net',
         'https://use.fontawesome.com',
         'https://cdnjs.cloudflare.com'
@@ -388,8 +395,6 @@ if not DEBUG:
         'ajax.googleapis.com', 
         'https://code.jquery.com',
         'https://cdn.jsdelivr.net',
-        'https://c2mmuaythai.com/static/js',
-        'https://www.c2mmuaythai.com/static/js'
+        'https://c2m-muay-thai.azurewebsites.net/static/js',
+        'https://40.80.58.226/static/js'
     )
-
-
