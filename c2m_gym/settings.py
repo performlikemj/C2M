@@ -353,6 +353,7 @@ if not DEBUG:
         'https://cdn.jsdelivr.net',
         'https://use.fontawesome.com',
         'https://cdnjs.cloudflare.com',
+        'https://www.gstatic.com', 
     )
     CSP_FONT_SRC = (
         "'self'", 
