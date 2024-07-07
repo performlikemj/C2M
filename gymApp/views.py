@@ -37,19 +37,21 @@ from azure.communication.email import EmailClient
 from django.views.i18n import set_language as django_set_language
 
 
-def set_language(request):
-    print("set_language view called")
-    response = django_set_language(request)
-    user_language = request.POST.get('language', None)
-    print("Selected language: ", user_language)
-    if user_language:
-        translation.activate(user_language)
-        request.session['django_language'] = user_language
-    next_url = request.POST.get('next', '/')
-    print("Redirecting to: ", next_url)
-    return HttpResponseRedirect(next_url)
 
 logger = logging.getLogger('gymApp')
+
+def set_language(request):
+    logger.debug("set_language view called")
+    response = django_set_language(request)
+    user_language = request.POST.get('language', None)
+    logger.debug("Selected language: %s", user_language)
+    if user_language:
+        translation.activate(user_language)
+        request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+        logger.debug("Language set in session: %s", user_language)
+    next_url = request.POST.get('next', '/')
+    logger.debug("Redirecting to: %s", next_url)
+    return HttpResponseRedirect(next_url)
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
