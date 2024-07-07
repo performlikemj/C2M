@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'c2m_gym',  
-    'gymApp', 
+    'c2m_gym',
+    'gymApp',
     'gym_info',
     'class_schedule',
     'products',
@@ -58,8 +58,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'modeltranslation',
     'django_celery_beat',
-    'storages',
     'corsheaders',
+    'whitenoise.runserver_nostatic',
 ]
 
 from django.contrib.messages import constants as messages
@@ -68,13 +68,13 @@ MESSAGE_TAGS = {
     messages.INFO: 'info',
     messages.SUCCESS: 'success',
     messages.WARNING: 'warning',
-    messages.ERROR: 'danger',  
+    messages.ERROR: 'danger',
 }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'csp.middleware.CSPMiddleware',
@@ -86,15 +86,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 AUTHENTICATION_BACKENDS = [
-    'gymApp.backends.CaseInsensitiveModelBackend',  
+    'gymApp.backends.CaseInsensitiveModelBackend',
     'gymApp.backends.EmailVerificationBackend',
-    'django.contrib.auth.backends.ModelBackend',  # Optional, for admin and other internals
-    'axes.backends.AxesStandaloneBackend',  
+    'django.contrib.auth.backends.ModelBackend',
+    'axes.backends.AxesStandaloneBackend',
 ]
-
-
 
 ROOT_URLCONF = 'c2m_gym.urls'
 
@@ -109,17 +106,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'gymApp.context_processors.user_groups',  
+                'gymApp.context_processors.user_groups',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'c2m_gym.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -132,50 +125,25 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
-# myproject/settings.py
 TIME_ZONE = 'Asia/Tokyo'
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -326,18 +294,43 @@ SITE_URL = config('SITE_URL')
 AZURE_CONNECTION_STRING = config('AZURE_CONNECTION_STRING')
 
 # Azure Blob Storage settings
+# if not DEBUG:
+#     AZURE_CONNECTION_STRING = config('AZURE_CONNECTION_STRING')
+#     AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
+#     AZURE_STORAGE_KEY = config('AZURE_STORAGE_KEY')
+#     AZURE_MEDIA_CONTAINER = config('AZURE_MEDIA_CONTAINER')
+#     AZURE_STATIC_CONTAINER = config('AZURE_STATIC_CONTAINER')
+
+#     DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+#     STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+
+    # MEDIA_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_MEDIA_CONTAINER}/'
+    # STATIC_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_STATIC_CONTAINER}/'
+
+
 if not DEBUG:
-    AZURE_CONNECTION_STRING = config('AZURE_CONNECTION_STRING')
-    AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
-    AZURE_STORAGE_KEY = config('AZURE_STORAGE_KEY')
-    AZURE_MEDIA_CONTAINER = config('AZURE_MEDIA_CONTAINER')
-    AZURE_STATIC_CONTAINER = config('AZURE_STATIC_CONTAINER')
+    # HTTPS settings
+    # SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
 
-    DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-    STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+    # Cookie settings
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_SECURE = True
 
-    MEDIA_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_MEDIA_CONTAINER}/'
-    STATIC_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_STATIC_CONTAINER}/'
+    # Axes settings
+    AXES_ENABLED = True
+    AXES_FAILURE_LIMIT = 5
+    AXES_COOLOFF_TIME = 1  # Cool off time in hours
+    AXES_LOCK_OUT_AT_FAILURE = True
+    AXES_RESET_ON_SUCCESS = True
+    AXES_LOCKOUT_TEMPLATE = 'registration/account_lockout.html'
+    AXES_LOCKOUT_URL = '/account_locked/'
 
     # Dynamically define the base URL for CSP
     CSP_BASE_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
@@ -382,31 +375,3 @@ if not DEBUG:
         'www.c2mmuaythai.com',
         'data:',
     )
-else:
-    # Local storage settings for development
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-
-if not DEBUG:
-    # HTTPS settings
-    # SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-
-    # Cookie settings
-    SESSION_COOKIE_SECURE = True
-    SESSION_COOKIE_HTTPONLY = True
-    CSRF_COOKIE_SECURE = True
-
-    # Axes settings
-    AXES_ENABLED = True
-    AXES_FAILURE_LIMIT = 5
-    AXES_COOLOFF_TIME = 1  # Cool off time in hours
-    AXES_LOCK_OUT_AT_FAILURE = True
-    AXES_RESET_ON_SUCCESS = True
-    AXES_LOCKOUT_TEMPLATE = 'registration/account_lockout.html'
-    AXES_LOCKOUT_URL = '/account_locked/'
