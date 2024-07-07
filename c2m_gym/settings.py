@@ -380,3 +380,9 @@ if not DEBUG:
         'www.c2mmuaythai.com',
         'data:',
     )
+    CSP_FORM_ACTION = (
+    "'self'",
+    'https://c2mmuaythai.com',
+    'https://www.c2mmuaythai.com',
+    '40.80.58.226',
+    )

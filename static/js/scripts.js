@@ -195,11 +195,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const languageForm = document.getElementById("language-form");
 
     if (languageSelect && languageForm) {
+        console.log("Language switcher initialized");
         languageSelect.addEventListener("change", function() {
+            console.log("Language changed to: ", languageSelect.value);
             languageForm.submit();
         });
     }
 });
+
 
 // Collect Payment
 if (document.getElementById('payment-form')) {
