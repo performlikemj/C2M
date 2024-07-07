@@ -333,6 +333,7 @@ if not DEBUG:
     AXES_LOCKOUT_URL = '/account_locked/'
 
     # Dynamically define the base URL for CSP
+    AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
     CSP_BASE_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 
     # CSP settings (using django-csp) with dynamic Azure account name
