@@ -59,16 +59,16 @@ INSTALLED_APPS = [
     'modeltranslation',
     'django_celery_beat',
     'storages',
+    'corsheaders',
 ]
 
-# Add message tags if not already present
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.DEBUG: 'debug',
     messages.INFO: 'info',
     messages.SUCCESS: 'success',
     messages.WARNING: 'warning',
-    messages.ERROR: 'danger',  # Map the error level to 'danger' for Bootstrap
+    messages.ERROR: 'danger',  
 }
 
 MIDDLEWARE = [
@@ -76,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'csp.middleware.CSPMiddleware',
     'axes.middleware.AxesMiddleware',
     'django.middleware.locale.LocaleMiddleware',
