@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'modeltranslation',
     'django_celery_beat',
-    'whitenoise.runserver_nostatic',
+    'storages',
 ]
 
 # Add message tags if not already present
@@ -85,8 +85,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if not DEBUG:
-    MIDDLEWARE.append('whitenoise.middleware.WhiteNoiseMiddleware')
 
 AUTHENTICATION_BACKENDS = [
     'gymApp.backends.CaseInsensitiveModelBackend',  
@@ -169,8 +167,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if DEBUG:
+    STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
 else:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
@@ -331,6 +329,18 @@ SITE_URL = config('SITE_URL')
 # Azure Email settings
 AZURE_CONNECTION_STRING = config('AZURE_CONNECTION_STRING')
 
+# Azure Blob Storage settings
+if not DEBUG:
+    AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
+    AZURE_STORAGE_KEY = config('AZURE_STORAGE_KEY')
+    AZURE_MEDIA_CONTAINER = config('AZURE_MEDIA_CONTAINER')
+    AZURE_STATIC_CONTAINER = config('AZURE_STATIC_CONTAINER')
+
+    DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+    AZURE_URL_EXPIRATION_SECS = 3600
+
+    MEDIA_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_MEDIA_CONTAINER}/'
+    STATIC_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_STATIC_CONTAINER}/'
 
 if not DEBUG:
     # HTTPS settings
