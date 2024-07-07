@@ -36,13 +36,17 @@ import os
 from azure.communication.email import EmailClient
 from django.views.i18n import set_language as django_set_language
 
+
 def set_language(request):
+    print("set_language view called")
     response = django_set_language(request)
     user_language = request.POST.get('language', None)
+    print("Selected language: ", user_language)
     if user_language:
         translation.activate(user_language)
-        request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+        request.session['django_language'] = user_language
     next_url = request.POST.get('next', '/')
+    print("Redirecting to: ", next_url)
     return HttpResponseRedirect(next_url)
 
 logger = logging.getLogger('gymApp')
