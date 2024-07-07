@@ -343,6 +343,50 @@ if not DEBUG:
     MEDIA_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_MEDIA_CONTAINER}/'
     STATIC_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_STATIC_CONTAINER}/'
 
+    # Dynamically define the base URL for CSP
+    CSP_BASE_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+
+    # CSP settings (using django-csp) with dynamic Azure account name
+    CSP_DEFAULT_SRC = (
+        "'self'",
+        'c2m-muay-thai.azurewebsites.net',
+        '40.80.58.226',
+        'https://c2m-muay-thai.azurewebsites.net',
+        'https://c2mmuaythai.com',
+        'https://www.c2mmuaythai.com',
+        CSP_BASE_URL,
+    )
+    CSP_STYLE_SRC = (
+        "'self'", 
+        'fonts.googleapis.com',
+        f'{CSP_BASE_URL}/static/css/style.css',
+        'https://cdn.jsdelivr.net',
+        'https://use.fontawesome.com',
+        'https://cdnjs.cloudflare.com',
+    )
+    CSP_FONT_SRC = (
+        "'self'", 
+        'fonts.gstatic.com',
+        'https://use.fontawesome.com',
+        'https://cdnjs.cloudflare.com'
+    )
+    CSP_SCRIPT_SRC = (
+        "'self'", 
+        'ajax.googleapis.com', 
+        'https://code.jquery.com',
+        'https://cdn.jsdelivr.net',
+        f'{CSP_BASE_URL}/static/js/main.js',
+    )
+    CSP_IMG_SRC = (
+        "'self'",
+        'c2m-muay-thai.azurewebsites.net',
+        '40.80.58.226',
+        CSP_BASE_URL,
+        'c2mmuaythai.com',
+        'www.c2mmuaythai.com',
+        'data:',
+    )
+
 if not DEBUG:
     # HTTPS settings
     # SECURE_SSL_REDIRECT = True
@@ -366,48 +410,3 @@ if not DEBUG:
     AXES_RESET_ON_SUCCESS = True
     AXES_LOCKOUT_TEMPLATE = 'registration/account_lockout.html'
     AXES_LOCKOUT_URL = '/account_locked/'
-
-    # CSP settings (using django-csp)
-    CSP_DEFAULT_SRC = (
-        "'self'",
-        'c2m-muay-thai.azurewebsites.net',
-        '40.80.58.226',
-        'https://c2m-muay-thai.azurewebsites.net',
-        'https://c2mmuaythai.com',
-        'https://www.c2mmuaythai.com',
-        'https://c2mblob.blob.core.windows.net',
-    )
-    CSP_STYLE_SRC = (
-        "'self'", 
-        'fonts.googleapis.com',
-        'https://c2m-muay-thai.azurewebsites.net/static/css',
-        'https://40.80.58.226/static/css',
-        'https://cdn.jsdelivr.net',
-        'https://use.fontawesome.com',
-        'https://cdnjs.cloudflare.com',
-        'https://c2mblob.blob.core.windows.net/static/css',
-    )
-    CSP_FONT_SRC = (
-        "'self'", 
-        'fonts.gstatic.com',
-        'https://use.fontawesome.com',
-        'https://cdnjs.cloudflare.com'
-    )
-    CSP_SCRIPT_SRC = (
-        "'self'", 
-        'ajax.googleapis.com', 
-        'https://code.jquery.com',
-        'https://cdn.jsdelivr.net',
-        'https://c2m-muay-thai.azurewebsites.net/static/js',
-        'https://40.80.58.226/static/js',
-        'https://c2mblob.blob.core.windows.net/static/js',
-    )
-    CSP_IMG_SRC = (
-        "'self'",
-        'c2m-muay-thai.azurewebsites.net',
-        '40.80.58.226',
-        'https://c2mblob.blob.core.windows.net',
-        'c2mmuaythai.com',
-        'www.c2mmuaythai.com',
-        'data:',
-    )
