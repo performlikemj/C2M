@@ -168,11 +168,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-if DEBUG:
-    STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-else:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
@@ -338,6 +333,7 @@ if not DEBUG:
     AZURE_STATIC_CONTAINER = config('AZURE_STATIC_CONTAINER')
 
     DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+    STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
     AZURE_URL_EXPIRATION_SECS = 3600
 
     MEDIA_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_MEDIA_CONTAINER}/'
@@ -386,6 +382,10 @@ if not DEBUG:
         'www.c2mmuaythai.com',
         'data:',
     )
+else:
+    # Local storage settings for development
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 if not DEBUG:
     # HTTPS settings
