@@ -364,8 +364,11 @@ if not DEBUG:
         "'self'", 
         'ajax.googleapis.com', 
         'https://code.jquery.com',
+        'https://js.stripe.com', 
         'https://cdn.jsdelivr.net',
         f'{CSP_BASE_URL}/static/js/main.js',
+        'https://cdnjs.cloudflare.com',
+        'https://unpkg.com/@zxing/library@latest',
     )
     CSP_IMG_SRC = (
         "'self'",
