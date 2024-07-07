@@ -8,6 +8,7 @@ from .models import (Profile, GymVisit, MembershipType, Membership,
                      CancellationReason, EmailVerificationToken)
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 from .decorators import kiosk_only
 from .forms import (CreateUserForm, EditUserProfileForm, UserProfileForm, MembershipForm, 
@@ -37,6 +38,10 @@ from django.views.i18n import set_language as django_set_language
 
 def set_language(request):
     response = django_set_language(request)
+    user_language = request.POST.get('language', None)
+    if user_language:
+        translation.activate(user_language)
+        request.session[translation.LANGUAGE_SESSION_KEY] = user_language
     next_url = request.POST.get('next', '/')
     return HttpResponseRedirect(next_url)
 
