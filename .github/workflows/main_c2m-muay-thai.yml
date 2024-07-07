@@ -35,21 +35,25 @@ jobs:
       - name: Collect static files
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          DEBUG: ${{ secrets.DEBUG }}
-          ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
-          DATABASES_ENGINE: ${{ secrets.DATABASES_ENGINE }}
-          DATABASES_NAME: ${{ secrets.DATABASES_NAME }}
-          DATABASES_USER: ${{ secrets.DATABASES_USER }}
-          DATABASES_PASSWORD: ${{ secrets.DATABASES_PASSWORD }}
-          DATABASES_HOST: ${{ secrets.DATABASES_HOST }}
-          DATABASES_PORT: ${{ secrets.DATABASES_PORT }}
-          STRIPE_PUBLIC_KEY: ${{ secrets.STRIPE_PUBLIC_KEY }}
-          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-          STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
-          SITE_URL: ${{ secrets.SITE_URL }}
-          CELERY_BROKER_URL: ${{ secrets.CELERY_BROKER_URL }}
-          CELERY_RESULT_BACKEND: ${{ secrets.CELERY_RESULT_BACKEND }}
-          AZURE_CONNECTION_STRING: ${{ secrets.AZURE_CONNECTION_STRING }}
+                DEBUG: ${{ secrets.DEBUG }}
+                ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+                DATABASES_ENGINE: ${{ secrets.DATABASES_ENGINE }}
+                DATABASES_NAME: ${{ secrets.DATABASES_NAME }}
+                DATABASES_USER: ${{ secrets.DATABASES_USER }}
+                DATABASES_PASSWORD: ${{ secrets.DATABASES_PASSWORD }}
+                DATABASES_HOST: ${{ secrets.DATABASES_HOST }}
+                DATABASES_PORT: ${{ secrets.DATABASES_PORT }}
+                STRIPE_PUBLIC_KEY: ${{ secrets.STRIPE_PUBLIC_KEY }}
+                STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+                STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
+                SITE_URL: ${{ secrets.SITE_URL }}
+                CELERY_BROKER_URL: ${{ secrets.CELERY_BROKER_URL }}
+                CELERY_RESULT_BACKEND: ${{ secrets.CELERY_RESULT_BACKEND }}
+                AZURE_CONNECTION_STRING: ${{ secrets.AZURE_CONNECTION_STRING }}
+                AZURE_ACCOUNT_NAME: ${{ secrets.AZURE_ACCOUNT_NAME }}
+                AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+                AZURE_MEDIA_CONTAINER: ${{ secrets.AZURE_MEDIA_CONTAINER }}
+                AZURE_STATIC_CONTAINER: ${{ secrets.AZURE_STATIC_CONTAINER }}
         run: |
           source antenv/bin/activate
           python manage.py collectstatic --noinput
