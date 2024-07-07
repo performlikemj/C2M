@@ -346,6 +346,7 @@ if not DEBUG:
 if not DEBUG:
     # HTTPS settings
     # SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
@@ -374,6 +375,7 @@ if not DEBUG:
         'https://c2m-muay-thai.azurewebsites.net',
         'https://c2mmuaythai.com',
         'https://www.c2mmuaythai.com',
+        'https://c2mblob.blob.core.windows.net',
     )
     CSP_STYLE_SRC = (
         "'self'", 
@@ -382,7 +384,8 @@ if not DEBUG:
         'https://40.80.58.226/static/css',
         'https://cdn.jsdelivr.net',
         'https://use.fontawesome.com',
-        'https://cdnjs.cloudflare.com'
+        'https://cdnjs.cloudflare.com',
+        'https://c2mblob.blob.core.windows.net/static/css',
     )
     CSP_FONT_SRC = (
         "'self'", 
@@ -396,5 +399,15 @@ if not DEBUG:
         'https://code.jquery.com',
         'https://cdn.jsdelivr.net',
         'https://c2m-muay-thai.azurewebsites.net/static/js',
-        'https://40.80.58.226/static/js'
+        'https://40.80.58.226/static/js',
+        'https://c2mblob.blob.core.windows.net/static/js',
+    )
+    CSP_IMG_SRC = (
+        "'self'",
+        'c2m-muay-thai.azurewebsites.net',
+        '40.80.58.226',
+        'https://c2mblob.blob.core.windows.net',
+        'c2mmuaythai.com',
+        'www.c2mmuaythai.com',
+        'data:',
     )
