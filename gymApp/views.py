@@ -44,7 +44,6 @@ logger = logging.getLogger('gymApp')
 @require_POST
 def set_language(request):
     lang_code = request.POST.get('language', None)
-    print(f'lang_code: {lang_code}')
     if lang_code and lang_code in [lang for lang, _ in settings.LANGUAGES]:
         redirect_url = f'/{lang_code}'
 
