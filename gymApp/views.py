@@ -23,9 +23,10 @@ import stripe
 from django.conf import settings
 from functools import wraps
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from django.views import View
 import logging
-from django.urls import reverse
+from django.urls import reverse, resolve
 from class_schedule.models import Session, Trainer
 import calendar
 from datetime import timedelta, datetime, date
@@ -40,18 +41,27 @@ from django.views.i18n import set_language as django_set_language
 
 logger = logging.getLogger('gymApp')
 
+@require_POST
 def set_language(request):
-    logger.debug("set_language view called")
-    response = django_set_language(request)
-    user_language = request.POST.get('language', None)
-    logger.debug("Selected language: %s", user_language)
-    if user_language:
-        translation.activate(user_language)
-        request.session[translation.LANGUAGE_SESSION_KEY] = user_language
-        logger.debug("Language set in session: %s", user_language)
-    next_url = request.POST.get('next', '/')
-    logger.debug("Redirecting to: %s", next_url)
-    return HttpResponseRedirect(next_url)
+    lang_code = request.POST.get('language', None)
+    print(f'lang_code: {lang_code}')
+    if lang_code and lang_code in [lang for lang, _ in settings.LANGUAGES]:
+        redirect_url = f'/{lang_code}'
+
+
+    response = HttpResponseRedirect(redirect_url)
+    response.set_cookie(
+        settings.LANGUAGE_COOKIE_NAME, 
+        lang_code,
+        max_age=settings.LANGUAGE_COOKIE_AGE,
+        path=settings.LANGUAGE_COOKIE_PATH,
+        domain=settings.LANGUAGE_COOKIE_DOMAIN,
+        secure=settings.LANGUAGE_COOKIE_SECURE,
+        httponly=settings.LANGUAGE_COOKIE_HTTPONLY,
+        samesite=settings.LANGUAGE_COOKIE_SAMESITE,
+    )
+    translation.activate(lang_code)
+    return response
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 

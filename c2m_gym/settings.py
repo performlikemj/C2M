@@ -386,3 +386,64 @@ if not DEBUG:
     'https://www.c2mmuaythai.com',
     '40.80.58.226',
     )
+else:
+    # Dynamically define the base URL for CSP
+    AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
+    CSP_BASE_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+
+    # CSP settings (using django-csp) with dynamic Azure account name
+    CSP_DEFAULT_SRC = (
+        "'self'",
+        'c2m-muay-thai.azurewebsites.net',
+        '40.80.58.226',
+        'https://c2m-muay-thai.azurewebsites.net',
+        'https://c2mmuaythai.com',
+        'https://www.c2mmuaythai.com',
+        '127.0.0.1',
+        CSP_BASE_URL,
+    )
+    CSP_STYLE_SRC = (
+        "'self'", 
+        'fonts.googleapis.com',
+        f'{CSP_BASE_URL}/static/css/style.css',
+        'https://cdn.jsdelivr.net',
+        'https://use.fontawesome.com',
+        'https://cdnjs.cloudflare.com',
+        'https://www.gstatic.com', 
+        '127.0.0.1'
+    )
+    CSP_FONT_SRC = (
+        "'self'", 
+        'fonts.gstatic.com',
+        'https://use.fontawesome.com',
+        'https://cdnjs.cloudflare.com',
+        '127.0.0.1'
+    )
+    CSP_SCRIPT_SRC = (
+        "'self'", 
+        'ajax.googleapis.com', 
+        'https://code.jquery.com',
+        'https://js.stripe.com', 
+        'https://cdn.jsdelivr.net',
+        f'{CSP_BASE_URL}/static/js/main.js',
+        'https://cdnjs.cloudflare.com',
+        'https://unpkg.com/@zxing/library@latest',
+        '127.0.0.1'
+    )
+    CSP_IMG_SRC = (
+        "'self'",
+        'c2m-muay-thai.azurewebsites.net',
+        '40.80.58.226',
+        CSP_BASE_URL,
+        'c2mmuaythai.com',
+        'www.c2mmuaythai.com',
+        '127.0.0.1',
+        'data:',
+    )
+    CSP_FORM_ACTION = (
+    "'self'",
+    'https://c2mmuaythai.com',
+    'https://www.c2mmuaythai.com',
+    '40.80.58.226',
+    '127.0.0.1'
+    )
