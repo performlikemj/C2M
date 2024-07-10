@@ -696,14 +696,14 @@ def verify_document(request, submission_id):
 @login_required
 def edit_own_profile(request):
     user = request.user
-    profile, _ = Profile.objects.get_or_create(user=user)
+    profile, created = Profile.objects.get_or_create(user=user)  # Changed `_` to `created`
 
     if request.method == 'POST':
         user_form = EditUserProfileForm(request.POST, request.FILES, instance=user)
         if user_form.is_valid():
             user_form.save()
             if 'temp_email' in user_form.changed_data:
-                token, _ = EmailVerificationToken.objects.get_or_create(user=user)
+                token, token_created = EmailVerificationToken.objects.get_or_create(user=user)  # Changed `_` to `token_created`
                 send_verification_email.delay(user.id, token.token)
                 messages.success(request, _('Your profile was updated successfully. Please check your new email to verify the change.'))
             else:
@@ -717,6 +717,7 @@ def edit_own_profile(request):
     return render(request, 'gymApp/edit_own_profile.html', {
         'user_form': user_form, 'now': timezone.now()
     })
+
 
 @permission_required('auth.change_user', raise_exception=True)
 def edit_user(request, pk):
