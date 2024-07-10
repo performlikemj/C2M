@@ -68,7 +68,8 @@ def class_list(request):
         'previous_week': week_offset - 1,
         'next_week': week_offset + 1,
         'start_week': start_week,
-        'end_week': end_week
+        'end_week': end_week,
+        'now': timezone.now(),
     }
     return render(request, 'class_schedule/class_list.html', context)
 

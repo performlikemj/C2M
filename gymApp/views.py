@@ -558,7 +558,8 @@ def add_payment_method(request):
             return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
     else:
         context = {
-            'stripe_public_key': settings.STRIPE_PUBLIC_KEY
+            'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
+            'now': timezone.now(),
         }
         return render(request, 'gymApp/add_payment_method.html', context)
 
@@ -626,7 +627,8 @@ def select_membership(request):
     return render(request, 'gymApp/select_membership.html', {
         'current_membership': current_membership,
         'membership_types': membership_types,
-        'cancellation_form': cancellation_form
+        'cancellation_form': cancellation_form,
+        'now': timezone.now()
     })
 
 def is_staff(user):
@@ -670,7 +672,7 @@ def is_trainer(user):
 @user_passes_test(is_ceo_or_boss)
 def list_users(request):
     users = User.objects.filter(is_staff=False).select_related('profile')
-    return render(request, 'gymApp/list_users.html', {'users': users})
+    return render(request, 'gymApp/list_users.html', {'users': users, 'now': timezone.now()})
 
 @user_passes_test(is_ceo_or_boss)
 def view_user_documents(request, user_id):
@@ -678,7 +680,8 @@ def view_user_documents(request, user_id):
     submissions = UserDocument.objects.filter(user=user).select_related('document')
     return render(request, 'gymApp/view_user_documents.html', {
         'user': user,
-        'submissions': submissions
+        'submissions': submissions,
+        'now': timezone.now()
     })
 
 @user_passes_test(is_ceo_or_boss)
@@ -712,7 +715,7 @@ def edit_own_profile(request):
         user_form = EditUserProfileForm(instance=user)
 
     return render(request, 'gymApp/edit_own_profile.html', {
-        'user_form': user_form,
+        'user_form': user_form, 'now': timezone.now()
     })
 
 @permission_required('auth.change_user', raise_exception=True)

@@ -107,6 +107,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'gymApp.context_processors.user_groups',
+                'gymApp.context_processors.current_datetime',
             ],
         },
     },
