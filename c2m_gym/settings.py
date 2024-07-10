@@ -62,13 +62,14 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
 ]
 
-from django.contrib.messages import constants as messages
+from django.contrib.messages import constants as message_constants
+
 MESSAGE_TAGS = {
-    messages.DEBUG: 'debug',
-    messages.INFO: 'info',
-    messages.SUCCESS: 'success',
-    messages.WARNING: 'warning',
-    messages.ERROR: 'danger',
+    message_constants.DEBUG: 'debug',
+    message_constants.INFO: 'info',
+    message_constants.SUCCESS: 'success',
+    message_constants.WARNING: 'warning',
+    message_constants.ERROR: 'danger',
 }
 
 MIDDLEWARE = [
