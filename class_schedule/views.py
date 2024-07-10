@@ -80,11 +80,12 @@ def class_detail(request, class_id):
     past_sessions = class_obj.sessions.filter(start_time__lt=now).order_by('-start_time')
 
     return render(request, 'class_schedule/class_detail.html', {
-        'class': class_obj,
+        'class_obj': class_obj,
         'upcoming_sessions': upcoming_sessions,
         'past_sessions': past_sessions,
         'now': now
     })
+
 
 def session_detail(request, session_id):
     session = get_object_or_404(Session, id=session_id)

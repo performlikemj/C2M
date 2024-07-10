@@ -6,12 +6,12 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-lg-8 mx-auto">
-            <h1 class="display-4">{{ class.title }}</h1>
-            <p class="lead">{{ class.description }}</p>
+            <h1 class="display-4">{{ class_obj.title }}</h1>
+            <p class="lead">{{ class_obj.description }}</p>
 
             <!-- Button to Add a New Session -->
             {% if request.user.is_staff %}
-                <a href="{% url 'add_session' class.id %}" class="btn btn-primary mb-4">{% trans "Add New Session" %}</a>
+                <a href="{% url 'add_session' class_obj.id %}" class="btn btn-primary mb-4">{% trans "Add New Session" %}</a>
             {% endif %}
 
             <hr class="my-4">
