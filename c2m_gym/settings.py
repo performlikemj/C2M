@@ -289,13 +289,14 @@ AZURE_CONNECTION_STRING = config('AZURE_CONNECTION_STRING')
 
 # Azure Blob Storage settings
 if not DEBUG:
-    # Azure Storage settings
     AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
     AZURE_STORAGE_KEY = config('AZURE_STORAGE_KEY')
     AZURE_MEDIA_CONTAINER = config('AZURE_MEDIA_CONTAINER')
     AZURE_BLOB_CONNECTION_STRING = config('AZURE_BLOB_CONNECTION_STRING')
+
     DEFAULT_FILE_STORAGE = 'c2m_gym.azure_storage.AzureMediaStorage'
     MEDIA_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_MEDIA_CONTAINER}/'
+
 
 
 
@@ -369,6 +370,7 @@ if not DEBUG:
         CSP_BASE_URL,
         'c2mmuaythai.com',
         'www.c2mmuaythai.com',
+        f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net',
         'data:',
     )
     CSP_FORM_ACTION = (
