@@ -428,6 +428,7 @@ else:
         CSP_BASE_URL,
         'c2mmuaythai.com',
         'www.c2mmuaythai.com',
+        f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net',
         '127.0.0.1',
         'data:',
     )
