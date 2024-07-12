@@ -46,4 +46,8 @@ urlpatterns = [
     path('payment/success/', views.payment_success, name='payment_success'),  # Ensure this path is correct
     path('payment/cancel/', views.payment_cancel, name='payment_cancel'),
 
+    # Error paths
+    # path('trigger-error/<str:error_type>/', views.trigger_error, name='trigger_error'),
+
+
 ]
