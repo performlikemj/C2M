@@ -1,7 +1,7 @@
 # gymApp views
 import json
 from django.forms import ValidationError
-from django.http import JsonResponse, HttpResponseForbidden, HttpResponse, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseForbidden, HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, HttpResponseNotFound, HttpResponseServerError
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from .models import (Profile, GymVisit, MembershipType, Membership, 
                      TrialPayment, PersonalTrainingSession, PurchasedTrainingSession, 
@@ -40,6 +40,36 @@ from django.views.i18n import set_language as django_set_language
 
 
 logger = logging.getLogger('gymApp')
+
+def custom_bad_request_view(request, exception):
+    messages.error(request, _("The request was invalid."))
+    return render(request, '400.html', status=400)
+
+def custom_permission_denied_view(request, exception):
+    messages.error(request, _("You do not have permission to access this page."))
+    return render(request, '403.html', status=403)
+
+def custom_page_not_found_view(request, exception):
+    messages.error(request, _("The page you requested was not found."))
+    return render(request, '404.html', status=404)
+
+def custom_server_error_view(request):
+    messages.error(request, _("An error occurred on the server."))
+    return render(request, '500.html', status=500)
+
+
+# def trigger_error(request, error_type):
+#     if error_type == '400':
+#         return custom_bad_request_view(request, None)
+#     elif error_type == '403':
+#         return custom_permission_denied_view(request, None)
+#     elif error_type == '404':
+#         return custom_page_not_found_view(request, None)
+#     elif error_type == '500':
+#         return custom_server_error_view(request)
+#     else:
+#         return render(request, 'gymApp/error_selector.html')
+
 
 @require_POST
 def set_language(request):

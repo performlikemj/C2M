@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1>400</h1>
+    <p>{% trans "Bad Request" %}</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">{% trans "Go to Home" %}</a>
+    <br>
+    <img src="{% static 'images/nav-logo.png' %}" alt="Logo" class="mb-4">
+</div>
+{% endblock %}

@@ -16,10 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler400, handler403, handler404, handler500
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from gymApp.views import stripe_webhook, set_language
+
+
+# Custom error handlers
+handler400 = 'gymApp.views.custom_bad_request_view'
+handler403 = 'gymApp.views.custom_permission_denied_view'
+handler404 = 'gymApp.views.custom_page_not_found_view'
+handler500 = 'gymApp.views.custom_server_error_view'
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
