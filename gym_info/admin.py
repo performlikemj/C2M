@@ -1,8 +1,12 @@
 # gym_info/admin.py
+
 from django.contrib import admin
 from .models import Trainer, ContactInfo
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
+import logging
+
+logger = logging.getLogger(__name__)
 
 class TrainerInline(admin.StackedInline):
     model = Trainer
@@ -27,6 +31,13 @@ class TrainerAdmin(admin.ModelAdmin):
     list_display = ('name', 'user', 'bio')
     search_fields = ('name', 'user__username')
     list_filter = ('user__is_staff',)
+
+    def save_model(self, request, obj, form, change):
+        try:
+            super().save_model(request, obj, form, change)
+        except Exception as e:
+            logger.error(f"Error saving model {obj}: {e}")
+            raise
 
 @admin.register(ContactInfo)
 class ContactInfoAdmin(admin.ModelAdmin):

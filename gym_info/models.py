@@ -2,7 +2,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Q
+import logging
 
+logger = logging.getLogger(__name__)
 
 # Updated Trainer model to link with User
 class Trainer(models.Model):
@@ -35,6 +37,14 @@ class Trainer(models.Model):
 
         return not personal_training_conflicts
 
+
+    def save(self, *args, **kwargs):
+        logger.debug(f"Saving trainer: {self.name}")
+        if self.photo:
+            logger.debug(f"Photo uploaded: {self.photo.name}")
+        else:
+            logger.debug("No photo uploaded")
+        super().save(*args, **kwargs)
 
 class ContactInfo(models.Model):
     instagram_url = models.URLField(blank=True, null=True)
