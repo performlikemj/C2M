@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+    {% trans "Commercial Disclosure - C2M MUAY THAI" %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{% trans "Commercial Disclosure" %}</h2>
+    
+    <h3>{% trans "Business Information" %}</h3>
+    <p>
+        <strong>C2M MUAY THAI & FITNESS</strong><br>
+        "大阪市中央区西心斎橋2-10-29 (1F) ヲリタビル, 大阪府 542-0086"<br>
+        {% trans "Head of Operations:" %} Bussarin La Ortae<br>
+        {% trans "Contact:" %} 080-6652-0007<br>
+        {% trans "Email:" %} c2mmuaythai@gmail</br>
+    </p>
+    <br> <!-- Line break added here -->
+
+    <h3>{% trans "Products and Services" %}</h3>
+    <p>
+        {% trans "C2M MUAY THAI offers a variety of fitness classes, personal training sessions, and gym memberships. Our classes include Muay Thai, kickboxing, and general fitness training." %}
+    </p>
+    <br> <!-- Line break added here -->
+
+    <h3>{% trans "Pricing and Fees" %}</h3>
+    <p>{% trans "All prices include tax." %}</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "Membership Name" %}</th>
+                <th>{% trans "Price (Yen) Female" %}</th>
+                <th>{% trans "Price (Yen) Male" %}</th>
+                <th>{% trans "Included Sessions" %}</th>
+                <th>{% trans "Included Personal Trainings" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{% trans "VIP" %}</td>
+                <td>33,000.00</td>
+                <td>33,000.00</td>
+                <td>10000</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>{% trans "Unlimited" %}</td>
+                <td>11,000.00</td>
+                <td>16,500.00</td>
+                <td>1000</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>{% trans "6 Times A Month" %}</td>
+                <td>9,900.00</td>
+                <td>12,100.00</td>
+                <td>6</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>{% trans "4 Times A Month" %}</td>
+                <td>6,600.00</td>
+                <td>8,800.00</td>
+                <td>4</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+    <br> <!-- Line break added here -->
+
+    <h3>{% trans "Payment Information" %}</h3>
+    <p>
+        {% trans "We accept credit card payments via Stripe. All payments are processed securely. Billing occurs on a monthly basis, and the billing period ends at the end of each month." %}
+    </p>
+    <br> <!-- Line break added here -->
+
+    <h3>{% trans "Refund Policy" %}</h3>
+    <p>
+        {% trans "Refunds are available under the following conditions:" %}<br>
+        - {% trans "If a membership is canceled by C2M MUAY THAI" %}<br>
+        - {% trans If a customer cancels their membership within the first 7 days" %}<br>
+        {% trans "Please contact our support team for more information on refunds." %}
+    </p>
+    <br> <!-- Line break added here -->
+
+    <h3>{% trans "Privacy Policy" %}</h3>
+    <p>
+        {% trans "We value your privacy. Any personal information collected is used solely for providing our services. We do not share your data with third parties without your consent." %}
+    </p>
+    <br> <!-- Line break added here -->
+
+    <h3>{% trans "Terms of Service" %}</h3>
+    <p>
+        {% trans "By using our services, you agree to the following terms and conditions:" %}<br>
+        - {% trans "Memberships are non-transferable" %}<br>
+        - {% trans "Class bookings are subject to availability" %}<br>
+        - {% trans "Customers must follow the gym's rules and regulations" %}<br>
+    </p>
+</div>
+{% endblock %}

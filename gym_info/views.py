@@ -37,6 +37,9 @@ def home(request):
 
     return render(request, 'gym_info/home.html', {'now': timezone.now(), 'services': services})
 
+def commerce_disclosure(request):
+    return render(request, 'commerce_disclosure.html')
+
 def trainers(request):
     trainer_list = Trainer.objects.all()
     context = {'trainers': trainer_list, 'now': timezone.now()}
