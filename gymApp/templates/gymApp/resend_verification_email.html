@@ -7,14 +7,7 @@
     <h2 class="mb-4">{% trans "Resend Verification Email" %}</h2>
     <form method="post">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="email">{% trans "Enter your email address" %}:</label>
-            {{ form.email }}
-        </div>
-        <div class="form-group">
-            <label for="username">{% trans "Enter your username" %}:</label>
-            {{ form.username }}
-        </div>
+        {{ form.as_p }}
         <button type="submit" class="btn btn-primary mt-3">{% trans "Resend Email" %}</button>
     </form>
     <div class="mt-3">
