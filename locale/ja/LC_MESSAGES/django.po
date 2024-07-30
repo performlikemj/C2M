@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-14 14:43+0900\n"
+"POT-Creation-Date: 2024-07-30 13:31+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -568,7 +568,7 @@ msgid "Collect Payment"
 msgstr "支払いを集める"
 
 #: gymApp/templates/gymApp/collect_payment.html:12
-#: templates/commerce_disclosure.html:74
+#: templates/commerce_disclosure.html:86
 msgid "Payment Information"
 msgstr "支払い情報"
 
@@ -777,25 +777,17 @@ msgid "Resend Verification Email"
 msgstr "確認メールを再送"
 
 #: gymApp/templates/gymApp/resend_verification_email.html:11
-msgid "Enter your email address"
-msgstr "メールアドレスを入力"
-
-#: gymApp/templates/gymApp/resend_verification_email.html:15
-msgid "Enter your username"
-msgstr "ユーザー名を入力"
-
-#: gymApp/templates/gymApp/resend_verification_email.html:18
 msgid "Resend Email"
 msgstr "メールを再送"
 
-#: gymApp/templates/gymApp/resend_verification_email.html:21
+#: gymApp/templates/gymApp/resend_verification_email.html:14
 #: gymApp/views.py:148 gymApp/views.py:152
 msgid ""
 "If your email address and username are correct, a verification email was "
 "sent."
 msgstr "メールアドレスとユーザー名が正しければ、確認メールが送信されました。"
 
-#: gymApp/templates/gymApp/resend_verification_email.html:22
+#: gymApp/templates/gymApp/resend_verification_email.html:15
 msgid ""
 "Check your spam or junk folder if you don't receive the email within a few "
 "minutes."
@@ -1434,6 +1426,10 @@ msgstr "特定商取引法に基づく表記"
 msgid "Business Information"
 msgstr "事業情報"
 
+#: templates/commerce_disclosure.html:16
+msgid "大阪市中央区西心斎橋2-10-29 (1F) ヲリタビル, 大阪府 542-0086"
+msgstr ""
+
 #: templates/commerce_disclosure.html:17
 msgid "Head of Operations:"
 msgstr "運営責任者："
@@ -1459,7 +1455,10 @@ msgid ""
 "C2M MUAY THAI offers a variety of fitness classes, personal training "
 "sessions, and gym memberships. Our classes include Muay Thai, kickboxing, "
 "and general fitness training."
-msgstr "C2M MUAY THAIは、様々なフィットネスクラス、パーソナルトレーニングセッション、そしてジムの会員制度を提供しています。当ジムのクラスには、ムエタイ、キックボクシング、そして一般的なフィットネストレーニングが含まれます。"
+msgstr ""
+"C2M MUAY THAIは、様々なフィットネスクラス、パーソナルトレーニングセッション、"
+"そしてジムの会員制度を提供しています。当ジムのクラスには、ムエタイ、キックボ"
+"クシング、そして一般的なフィットネストレーニングが含まれます。"
 
 #: templates/commerce_disclosure.html:29
 msgid "Pricing and Fees"
@@ -1513,57 +1512,95 @@ msgstr "月6回"
 msgid "4 Times A Month"
 msgstr "月4回"
 
+#: templates/commerce_disclosure.html:74
+msgid "Additional Fees"
+msgstr "追加手数料等の追加料金"
+
 #: templates/commerce_disclosure.html:76
+msgid "There are no additional fees beyond the listed membership prices."
+msgstr "記載されている会費以外の追加料金はありません。"
+
+#: templates/commerce_disclosure.html:80
+msgid "Delivery Times"
+msgstr "引渡時期"
+
+#: templates/commerce_disclosure.html:82
+msgid ""
+"Delivery times are not applicable to our services. The services are "
+"available as soon as a user signs up for a membership and makes the payment. "
+"Customers can start participating in classes and training sessions "
+"immediately after the registration process is completed."
+msgstr ""
+"引渡時期は当社のサービスには適用されません。"
+"サービスは、お客様が会員登録を行い支払いが完了した時点で利用可能です。"
+"登録手続きが完了次第、すぐにクラスやトレーニングセッションに参加できます。"
+
+#: templates/commerce_disclosure.html:88
 msgid ""
 "We accept credit card payments via Stripe. All payments are processed "
 "securely. Billing occurs on a monthly basis, and the billing period ends at "
 "the end of each month."
-msgstr "Stripeを通じたクレジットカード払いを受け付けています。すべての支払いは安全に処理されます。請求は月単位で行われ、請求期間は月末で終了します。"
+msgstr ""
+"Stripeを通じたクレジットカード払いを受け付けています。すべての支払いは安全に"
+"処理されます。請求は月単位で行われ、請求期間は月末で終了します。"
 
-#: templates/commerce_disclosure.html:80
+#: templates/commerce_disclosure.html:92
 msgid "Refund Policy"
 msgstr "返金ポリシー"
 
-#: templates/commerce_disclosure.html:82
+#: templates/commerce_disclosure.html:94
 msgid "Refunds are available under the following conditions:"
 msgstr "以下の条件に基づいて返金が可能です："
 
-#: templates/commerce_disclosure.html:83
+#: templates/commerce_disclosure.html:95
 msgid "If a membership is canceled by C2M MUAY THAI"
 msgstr "C2M MUAY THAIによってメンバーシップがキャンセルされた場合"
 
-#: templates/commerce_disclosure.html:85
+#: templates/commerce_disclosure.html:96
+msgid "If a customer cancels their membership within the first 7 days"
+msgstr ""
+
+#: templates/commerce_disclosure.html:97
 msgid "Please contact our support team for more information on refunds."
 msgstr "返金に関する詳細はサポートチームにお問い合わせください。"
 
-#: templates/commerce_disclosure.html:89
+#: templates/commerce_disclosure.html:101
 msgid "Privacy Policy"
 msgstr "プライバシーポリシー"
 
-#: templates/commerce_disclosure.html:91
+#: templates/commerce_disclosure.html:103
 msgid ""
 "We value your privacy. Any personal information collected is used solely for "
 "providing our services. We do not share your data with third parties without "
 "your consent."
-msgstr "お客様のプライバシーを重視しています。収集された個人情報は、サービス提供のためのみに使用されます。お客様の同意なしに第三者と情報を共有することはありません。"
+msgstr ""
+"お客様のプライバシーを重視しています。収集された個人情報は、サービス提供のた"
+"めのみに使用されます。お客様の同意なしに第三者と情報を共有することはありませ"
+"ん。"
 
-#: templates/commerce_disclosure.html:95
+#: templates/commerce_disclosure.html:107
 msgid "Terms of Service"
 msgstr "利用規約"
 
-#: templates/commerce_disclosure.html:97
+#: templates/commerce_disclosure.html:109
 msgid "By using our services, you agree to the following terms and conditions:"
-msgstr "当ジムのサービスを利用することにより、以下の利用規約に同意するものとします："
+msgstr ""
+"当ジムのサービスを利用することにより、以下の利用規約に同意するものとします："
 
-#: templates/commerce_disclosure.html:98
+#: templates/commerce_disclosure.html:110
 msgid "Memberships are non-transferable"
 msgstr "メンバーシップは譲渡不可です"
 
-#: templates/commerce_disclosure.html:99
+#: templates/commerce_disclosure.html:111
 msgid "Class bookings are subject to availability"
 msgstr "クラスの予約は空き状況に応じて承ります"
 
-#: templates/commerce_disclosure.html:100
+#: templates/commerce_disclosure.html:112
 msgid "Customers must follow the gym's rules and regulations"
 msgstr "お客様はジムの規則と規定に従う必要があります"
 
+#~ msgid "Enter your email address"
+#~ msgstr "メールアドレスを入力"
+
+#~ msgid "Enter your username"
+#~ msgstr "ユーザー名を入力"
